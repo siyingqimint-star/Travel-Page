@@ -1,0 +1,2552 @@
+{
+  "$schema": "./schemas/trip-data.schema.json",
+  "schemaVersion": "2.0-lite",
+  "config": {
+    "schemaVersion": "1.0.0",
+    "modules": {
+      "flights": true,
+      "overview": true,
+      "itinerary": true,
+      "todo": true,
+      "driving": false,
+      "ledger": true
+    },
+    "language": "zh-CN",
+    "persistence": {
+      "mode": "local"
+    }
+  },
+  "metadata": {
+    "tripId": "sg-bali-family-2026",
+    "title": "新加坡 × 巴厘岛 · 家庭之旅",
+    "language": "zh-CN",
+    "assets": {
+      "routeMaps": [
+        "assets/maps/templates/template-06-upland-basin.webp",
+        "assets/maps/templates/template-04-urban.webp"
+      ]
+    }
+  },
+  "trip": {
+    "status": "draft",
+    "startDate": "2026-09-24",
+    "endDate": "2026-10-08",
+    "dayCount": 15,
+    "nightCountAway": 7,
+    "countries": [
+      {
+        "code": "SG",
+        "nameZh": "新加坡",
+        "name": "Singapore",
+        "nameEn": "Singapore"
+      },
+      {
+        "code": "ID",
+        "nameZh": "印度尼西亚",
+        "name": "Indonesia",
+        "nameEn": "Indonesia"
+      },
+      {
+        "code": "CN",
+        "nameZh": "中国",
+        "name": "China",
+        "nameEn": "China"
+      },
+      {
+        "code": "HK",
+        "nameZh": "中国香港",
+        "name": "Hong Kong",
+        "nameEn": "Hong Kong"
+      }
+    ],
+    "primaryDestinationCountries": [
+      "SG",
+      "ID"
+    ],
+    "citiesAndAreas": [
+      "深圳",
+      "新加坡",
+      "巴厘岛（乌布 / 乌鲁瓦图 / 金巴兰）",
+      "香港"
+    ],
+    "routeSummary": "深圳 → 香港 → 新加坡 → 巴厘岛 → 新加坡 → 香港 → 深圳",
+    "groupSize": 3
+  },
+  "flightJourneys": [
+    {
+      "id": "j1",
+      "title": "长春 → 深圳 · 爸妈抵深"
+    },
+    {
+      "id": "j2",
+      "title": "香港 → 新加坡"
+    },
+    {
+      "id": "j3",
+      "title": "新加坡 → 巴厘岛"
+    },
+    {
+      "id": "j4",
+      "title": "巴厘岛 → 香港（新加坡中转）"
+    },
+    {
+      "id": "j5",
+      "title": "深圳 → 长春 · 爸妈返程"
+    }
+  ],
+  "flights": [
+    {
+      "id": "f-zh9638",
+      "journeyId": "j1",
+      "sequence": 1,
+      "airline": {
+        "nameZh": "深圳航空"
+      },
+      "flightNumber": "ZH9638",
+      "departure": {
+        "airportCode": "CGQ",
+        "city": "长春",
+        "date": "2026-09-24",
+        "time": "13:30",
+        "utcOffset": "+08:00"
+      },
+      "arrival": {
+        "airportCode": "SZX",
+        "city": "深圳",
+        "date": "2026-09-24",
+        "time": "18:00",
+        "utcOffset": "+08:00"
+      }
+    },
+    {
+      "id": "f-tr983",
+      "journeyId": "j2",
+      "sequence": 1,
+      "airline": {
+        "nameZh": "酷航"
+      },
+      "flightNumber": "TR983",
+      "departure": {
+        "airportCode": "HKG",
+        "city": "香港",
+        "date": "2026-09-27",
+        "time": "20:45",
+        "utcOffset": "+08:00"
+      },
+      "arrival": {
+        "airportCode": "SIN",
+        "city": "新加坡",
+        "date": "2026-09-28",
+        "time": "00:45",
+        "utcOffset": "+08:00"
+      }
+    },
+    {
+      "id": "f-tr346",
+      "journeyId": "j3",
+      "sequence": 1,
+      "airline": {
+        "nameZh": "酷航"
+      },
+      "flightNumber": "TR346",
+      "departure": {
+        "airportCode": "SIN",
+        "city": "新加坡",
+        "date": "2026-09-28",
+        "time": "21:15",
+        "utcOffset": "+08:00"
+      },
+      "arrival": {
+        "airportCode": "DPS",
+        "city": "巴厘岛（登巴萨）",
+        "date": "2026-09-29",
+        "time": "00:05",
+        "utcOffset": "+08:00"
+      }
+    },
+    {
+      "id": "f-tr281",
+      "journeyId": "j4",
+      "sequence": 1,
+      "airline": {
+        "nameZh": "酷航"
+      },
+      "flightNumber": "TR281",
+      "departure": {
+        "airportCode": "DPS",
+        "city": "巴厘岛（登巴萨）",
+        "date": "2026-10-04",
+        "time": "11:20",
+        "utcOffset": "+08:00"
+      },
+      "arrival": {
+        "airportCode": "SIN",
+        "city": "新加坡",
+        "date": "2026-10-04",
+        "time": "14:10",
+        "utcOffset": "+08:00"
+      }
+    },
+    {
+      "id": "f-tr982",
+      "journeyId": "j4",
+      "sequence": 2,
+      "airline": {
+        "nameZh": "酷航"
+      },
+      "flightNumber": "TR982",
+      "departure": {
+        "airportCode": "SIN",
+        "city": "新加坡",
+        "date": "2026-10-04",
+        "time": "15:25",
+        "utcOffset": "+08:00"
+      },
+      "arrival": {
+        "airportCode": "HKG",
+        "city": "香港",
+        "date": "2026-10-04",
+        "time": "19:45",
+        "utcOffset": "+08:00"
+      }
+    },
+    {
+      "id": "f-cz6358",
+      "journeyId": "j5",
+      "sequence": 1,
+      "airline": {
+        "nameZh": "南方航空"
+      },
+      "flightNumber": "CZ6358",
+      "departure": {
+        "airportCode": "SZX",
+        "city": "深圳",
+        "date": "2026-10-08",
+        "time": "14:10",
+        "utcOffset": "+08:00"
+      },
+      "arrival": {
+        "airportCode": "CGQ",
+        "city": "长春",
+        "date": "2026-10-08",
+        "time": "18:35",
+        "utcOffset": "+08:00"
+      }
+    }
+  ],
+  "accommodations": [
+    {
+      "id": "acc-home-out",
+      "name": "家中（万庭大厦）",
+      "checkIn": "2026-09-24",
+      "checkOut": "2026-09-27"
+    },
+    {
+      "id": "acc-mercure",
+      "name": "Mercure ICON Singapore City Centre（美居ICON酒店）",
+      "nameEn": "Mercure ICON Singapore City Centre",
+      "checkIn": "2026-09-28",
+      "checkOut": "2026-09-28",
+      "roomType": "凌晨过渡住宿，当日傍晚退房前往机场",
+      "address": "8 Club Street, Singapore 069472",
+      "cityOrArea": "新加坡 · 牛车水",
+      "breakfast": "含早餐（以订单为准）",
+      "reminder": "入住 15:00 后 · 本次为凌晨过渡入住（约 02:00 入住，17:00 前退房）；酒店直连牛车水/直落亚逸地铁站",
+      "mapQuery": "Mercure ICON Singapore City Centre, 8 Club Street",
+      "priceNote": "待补充"
+    },
+    {
+      "id": "acc-aryaduta",
+      "name": "Aryaduta Bali（巴厘岛大使酒店）",
+      "nameEn": "Aryaduta Bali",
+      "checkIn": "2026-09-29",
+      "checkOut": "2026-09-29",
+      "roomType": "Premier Room 豪华尊贵房",
+      "address": "Jl. Kartika Plaza, Kuta, Bali",
+      "cityOrArea": "巴厘岛 · 库塔",
+      "breakfast": "含3份早餐+1个加床",
+      "reminder": "09-29 00:05 落地，约 01:15 快速入住休息；当日酒店早餐后退房前往乌布",
+      "mapQuery": "Aryaduta Bali, Jl. Kartika Plaza, Kuta",
+      "priceNote": "私家团包含",
+      "notice": "凌晨落地快速入住休息【车程约10分钟左右】"
+    },
+    {
+      "id": "acc-alaya",
+      "name": "Alaya Resort Ubud（阿拉亚乌布度假酒店，自订）",
+      "nameEn": "Alaya Resort Ubud",
+      "checkIn": "2026-09-29",
+      "checkOut": "2026-10-01",
+      "roomType": "Deluxe Room 豪华房",
+      "address": "Jl. Hanoman, Pengosekan, Ubud, Bali",
+      "cityOrArea": "巴厘岛 · 乌布",
+      "breakfast": "含3份早餐+1个加床",
+      "reminder": "自订酒店 · 09-29 午后入住，10-01 退房后前往乌鲁瓦图；dala spa 预约请联系前台",
+      "mapQuery": "Alaya Resort Ubud, Jl. Hanoman",
+      "priceNote": "待补充"
+    },
+    {
+      "id": "acc-ayana",
+      "name": "AYANA Resort Bali（阿雅娜度假酒店）",
+      "nameEn": "AYANA Resort Bali",
+      "checkIn": "2026-10-01",
+      "checkOut": "2026-10-02",
+      "roomType": "Ocean View Room 海景房",
+      "address": "Jl. Karang Mas Sejahtera, Jimbaran, Bali",
+      "cityOrArea": "巴厘岛 · 金巴兰",
+      "breakfast": "含3份早餐+1个加床",
+      "reminder": "10-01 晚入住；10-02 中午换房至阿雅娜别墅（专属电瓶车服务）",
+      "mapQuery": "AYANA Resort Bali, Jimbaran",
+      "priceNote": "私家团包含"
+    },
+    {
+      "id": "acc-villas",
+      "name": "The Villas at AYANA（阿雅娜度假别墅）",
+      "nameEn": "The Villas at AYANA Resort, Bali",
+      "checkIn": "2026-10-02",
+      "checkOut": "2026-10-04",
+      "roomType": "1 Bedroom Ocean View Villa 一室海景泳池别墅",
+      "address": "Jl. Karang Mas Sejahtera, Jimbaran, Bali",
+      "cityOrArea": "巴厘岛 · 金巴兰",
+      "breakfast": "含3份早餐+1个加床",
+      "reminder": "别墅权益：24小时私人管家 · 专属优先电瓶车 · 迎宾礼品 · 迷你吧首次免费 · 别墅图书馆 · H2O泳池 · 岩石酒吧VILLA专属优先通道；10-04 退房送机（航班 11:20 起飞，建议 08:30 前出发）",
+      "mapQuery": "The Villas at AYANA Resort Bali",
+      "priceNote": "私家团包含"
+    },
+    {
+      "id": "acc-home-back",
+      "name": "家中（万庭大厦）",
+      "checkIn": "2026-10-04",
+      "checkOut": "2026-10-08"
+    }
+  ],
+  "groundTransport": {
+    "rentalCar": null,
+    "rentalChecklist": [],
+    "drivingNotes": [],
+    "drivingReferenceLinks": [],
+    "plannedRoadLegs": [],
+    "publicTransitAndRail": []
+  },
+  "days": [
+    {
+      "day": 1,
+      "date": "2026-09-24",
+      "title": "爸妈抵达深圳",
+      "locations": [
+        "深圳宝安机场",
+        "万庭大厦"
+      ],
+      "schedule": [
+        {
+          "id": "d1-1",
+          "time": "13:30",
+          "type": "flight",
+          "text": "ZH9638 深圳航空 从长春龙嘉机场T2起飞"
+        },
+        {
+          "id": "d1-2",
+          "time": "18:00",
+          "type": "flight",
+          "text": "爸妈抵达深圳宝安机场T3"
+        },
+        {
+          "id": "d1-3",
+          "time": "抵达后",
+          "type": "transfer",
+          "text": "女儿接机，返回家中（万庭大厦）"
+        },
+        {
+          "id": "d1-4",
+          "time": "",
+          "type": "rest",
+          "text": "入住家中，休息调整"
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "date": "2026-09-25",
+      "title": "化妆 · 海鲜自助 · 邓紫棋演唱会",
+      "locations": [
+        "大冲商务中心A座",
+        "福田卓悦店",
+        "深圳大运中心体育场"
+      ],
+      "schedule": [
+        {
+          "id": "d2-1",
+          "time": "09:15",
+          "type": "drive",
+          "text": "从家（万庭大厦）出发，开车导航至大冲商务中心A座停车场"
+        },
+        {
+          "id": "d2-2",
+          "time": "09:30",
+          "type": "note",
+          "text": "到店化妆（大冲商务中心A座 6楼615）"
+        },
+        {
+          "id": "d2-3",
+          "time": "12:00",
+          "type": "restaurant",
+          "text": "午餐：舟市蒸汽海鲜自助（福田卓悦店）"
+        },
+        {
+          "id": "d2-4",
+          "time": "16:00",
+          "type": "drive",
+          "text": "出发前往深圳大运中心体育场（约40公里；当天13:00-23:30大运中心周边道路管控，注意绕行）"
+        },
+        {
+          "id": "d2-5",
+          "time": "17:00",
+          "type": "note",
+          "text": "检票入场（17:00开始检票；实名制入场，人票证一致，务必带身份证件）"
+        },
+        {
+          "id": "d2-6",
+          "time": "19:00",
+          "type": "attraction",
+          "text": "邓紫棋 I AM GLORIA 世界巡演 · 深圳站（座位信息待开票后补充）",
+          "ticketIds": [
+            "ticket-gem"
+          ]
+        },
+        {
+          "id": "d2-7",
+          "time": "散场后",
+          "type": "return",
+          "text": "演出结束返回家中（散场人多，留意接驳大巴/网约车指引）"
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "date": "2026-09-26",
+      "title": "待定 · 珠海一日游 或 佛山",
+      "locations": [
+        "待定"
+      ],
+      "schedule": [
+        {
+          "id": "d3-1",
+          "time": "",
+          "type": "note",
+          "text": "行程待定：珠海一日游 或 佛山（逛家具城），视火车票购买情况确定"
+        },
+        {
+          "id": "d3-2",
+          "time": "",
+          "type": "note",
+          "text": "备选A · 珠海一日游：情侣路、珠海大剧院（日月贝）、海滨公园、北山大祠堂一带城市漫步"
+        },
+        {
+          "id": "d3-3",
+          "time": "",
+          "type": "note",
+          "text": "备选B · 佛山：主要逛家具城（乐从家具城、罗浮宫家居等），顺路可安排佛山祖庙/岭南天地"
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "date": "2026-09-27",
+      "title": "出发 · 深圳湾口岸 → 香港机场 → 新加坡",
+      "locations": [
+        "万庭大厦",
+        "深圳湾口岸",
+        "香港国际机场T1"
+      ],
+      "schedule": [
+        {
+          "id": "d4-1",
+          "time": "16:00",
+          "type": "drive",
+          "text": "从家（万庭大厦）出发前往深圳湾口岸（周日晚口岸人流较大，预留过关时间）"
+        },
+        {
+          "id": "d4-2",
+          "time": "16:30",
+          "type": "transfer",
+          "text": "深圳湾口岸过关，乘商户拼车直达香港机场（过关+车程约1.5-2小时）"
+        },
+        {
+          "id": "d4-3",
+          "time": "18:45",
+          "type": "note",
+          "text": "抵达香港机场T1；TR983 值机柜台K区（4号门进），值机19:45截止"
+        },
+        {
+          "id": "d4-4",
+          "time": "20:45",
+          "type": "flight",
+          "text": "TR983 酷航 起飞（香港T1 → 新加坡樟宜T1）"
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "date": "2026-09-28",
+      "title": "新加坡 Citywalk 一日游",
+      "locations": [
+        "Mercure ICON酒店",
+        "亚坤总店",
+        "富康宁树洞",
+        "旧禧街警察局",
+        "松发肉骨茶",
+        "鱼尾狮公园",
+        "国家美术馆",
+        "珍宝海鲜",
+        "星耀樟宜"
+      ],
+      "schedule": [
+        {
+          "id": "d5-1",
+          "time": "00:45",
+          "type": "flight",
+          "text": "TR983 落地新加坡樟宜机场T1"
+        },
+        {
+          "id": "d5-2",
+          "time": "01:30",
+          "type": "transfer",
+          "text": "接机专车前往酒店"
+        },
+        {
+          "id": "d5-3",
+          "time": "02:00",
+          "type": "check-in",
+          "text": "入住 Mercure ICON Singapore City Centre（8 Club Street，牛车水/直落亚逸区域）"
+        },
+        {
+          "id": "d5-w1",
+          "time": "08:00",
+          "type": "walk",
+          "text": "步行前往亚坤总店（约8分钟）"
+        },
+        {
+          "id": "d5-4",
+          "time": "08:15",
+          "type": "restaurant",
+          "text": "早餐：亚坤咖椰吐司总店（远东广场 18 China Street #01-01，经典A套餐：咖椰吐司+半生蛋+咖啡；周一7:30起营业）"
+        },
+        {
+          "id": "d5-t1",
+          "time": "09:00",
+          "type": "train",
+          "text": "MRT东北线：牛车水（NE4）→ 多美歌（NE6），Exit B 出站步行3分钟即达树洞（全程约15分钟）"
+        },
+        {
+          "id": "d5-5",
+          "time": "09:30",
+          "type": "attraction",
+          "text": "富康宁公园网红树洞（Fort Canning Tree Tunnel 旋梯拍照，10点后排队渐多，趁早）"
+        },
+        {
+          "id": "d5-h1",
+          "time": "09:45",
+          "type": "hike",
+          "text": "穿富康宁公园下山（香料园 → 古堡门 → 莱佛士花园，一路下坡约40分钟）"
+        },
+        {
+          "id": "d5-6",
+          "time": "11:00",
+          "type": "attraction",
+          "text": "旧禧街警察局（彩虹窗经典机位，下山出口Hill Street路口）"
+        },
+        {
+          "id": "d5-w2",
+          "time": "11:15",
+          "type": "walk",
+          "text": "步行前往克拉码头（约5分钟）"
+        },
+        {
+          "id": "d5-7",
+          "time": "11:30",
+          "type": "restaurant",
+          "text": "午餐：松发肉骨茶（克拉码头总店 11 New Bridge Road）"
+        },
+        {
+          "id": "d5-w3",
+          "time": "12:45",
+          "type": "walk",
+          "text": "沿新加坡河岸 Boat Quay 步行至鱼尾狮公园（约18分钟，河景平路）"
+        },
+        {
+          "id": "d5-8",
+          "time": "13:30",
+          "type": "attraction",
+          "text": "鱼尾狮公园（Merlion Park 拍照打卡）"
+        },
+        {
+          "id": "d5-w4",
+          "time": "14:00",
+          "type": "walk",
+          "text": "步行前往国家美术馆（经 Fullerton 与大草场，约15分钟）"
+        },
+        {
+          "id": "d5-9",
+          "time": "14:15",
+          "type": "attraction",
+          "text": "国家美术馆（旧最高法院+市政厅双子建筑，约2小时）"
+        },
+        {
+          "id": "d5-t2",
+          "time": "16:15",
+          "type": "train",
+          "text": "MRT回酒店取行李、办理退房"
+        },
+        {
+          "id": "d5-10",
+          "time": "17:15",
+          "type": "restaurant",
+          "text": "晚餐：珍宝海鲜（河滨店 Riverside Point，克拉码头，招牌辣椒螃蟹/麦片虾）"
+        },
+        {
+          "id": "d5-t3",
+          "time": "18:45",
+          "type": "train",
+          "text": "MRT前往樟宜机场：克拉码头（NE线）→ 欧南园 → 东西线 → 丹那美拉（EW4）同站台转机场支线 → 樟宜机场（CG2），全程约50分钟"
+        },
+        {
+          "id": "d5-11",
+          "time": "19:40",
+          "type": "attraction",
+          "text": "星耀樟宜大瀑布（Jewel Rain Vortex，跟随Juel指示牌步行约8分钟，晚上看灯光效果）"
+        },
+        {
+          "id": "d5-12",
+          "time": "20:30",
+          "type": "note",
+          "text": "星耀L1直连T1出发大厅，过边检安检（无需办理托运）"
+        },
+        {
+          "id": "d5-13",
+          "time": "21:15",
+          "type": "flight",
+          "text": "TR346 酷航 起飞（新加坡樟宜T1 → 巴厘岛登巴萨，行李直达巴厘岛）"
+        }
+      ]
+    },
+    {
+      "day": 6,
+      "date": "2026-09-29",
+      "title": "巴厘岛 D1-D2 · 落地 → 库塔休息 → 乌布",
+      "locations": [
+        "巴厘岛登巴萨机场",
+        "Aryaduta Bali",
+        "Alaya Resort Ubud"
+      ],
+      "schedule": [
+        {
+          "id": "d6-1",
+          "time": "00:05",
+          "type": "flight",
+          "text": "TR346 落地巴厘岛登巴萨机场（办理落地签，约35美金/人）"
+        },
+        {
+          "id": "d6-t1",
+          "time": "01:00",
+          "type": "transfer",
+          "text": "专车接机，前往库塔区域酒店（车程约10分钟）"
+        },
+        {
+          "id": "d6-2",
+          "time": "01:15",
+          "type": "check-in",
+          "text": "快速入住 Aryaduta Bali（Premier Room 豪华尊贵房），休息"
+        },
+        {
+          "id": "d6-3",
+          "time": "09:00",
+          "type": "restaurant",
+          "text": "酒店早餐"
+        },
+        {
+          "id": "d6-d1",
+          "time": "10:30",
+          "type": "drive",
+          "text": "专车前往乌布"
+        },
+        {
+          "id": "d6-4",
+          "time": "12:00",
+          "type": "check-in",
+          "text": "入住 Alaya Resort Ubud（Deluxe Room 豪华房，自订）"
+        },
+        {
+          "id": "d6-5",
+          "time": "14:00",
+          "type": "note",
+          "text": "预约 dala spa，体验SPA"
+        },
+        {
+          "id": "d6-6",
+          "time": "18:30",
+          "type": "restaurant",
+          "text": "晚餐：pison"
+        }
+      ]
+    },
+    {
+      "day": 7,
+      "date": "2026-09-30",
+      "title": "巴厘岛 D3 · 乌布自然与艺术",
+      "locations": [
+        "Alaya Resort Ubud",
+        "Tukad Cepung瀑布",
+        "乌布艺术集市"
+      ],
+      "schedule": [
+        {
+          "id": "d7-1",
+          "time": "",
+          "type": "note",
+          "text": "自然醒，酒店早餐"
+        },
+        {
+          "id": "d7-d1",
+          "time": "10:00",
+          "type": "drive",
+          "text": "专车出发前往乌布区域"
+        },
+        {
+          "id": "d7-2",
+          "time": "10:30",
+          "type": "attraction",
+          "text": "Tukad Cepung 瀑布（需简单溯溪一段，建议穿防滑溯溪鞋，打卡拍照游玩）"
+        },
+        {
+          "id": "d7-d2",
+          "time": "13:00",
+          "type": "drive",
+          "text": "前往午餐地点"
+        },
+        {
+          "id": "d7-3",
+          "time": "13:15",
+          "type": "restaurant",
+          "text": "午餐：twist wubu（已代预约位置）"
+        },
+        {
+          "id": "d7-4",
+          "time": "14:30",
+          "type": "attraction",
+          "text": "乌布传统艺术集市逛街"
+        },
+        {
+          "id": "d7-5",
+          "time": "16:30",
+          "type": "note",
+          "text": "体验 green tara spa"
+        },
+        {
+          "id": "d7-d3",
+          "time": "18:30",
+          "type": "drive",
+          "text": "前往晚餐餐厅"
+        },
+        {
+          "id": "d7-6",
+          "time": "19:00",
+          "type": "restaurant",
+          "text": "晚餐：sunsun wrung 脏鸭饭"
+        }
+      ]
+    },
+    {
+      "day": 8,
+      "date": "2026-10-01",
+      "title": "巴厘岛 D4 · 乌布 → 乌鲁瓦图 → 阿雅娜",
+      "locations": [
+        "Alaya Resort Ubud",
+        "乌鲁瓦图情人崖",
+        "White Rock Beach Club",
+        "AYANA Resort Bali"
+      ],
+      "schedule": [
+        {
+          "id": "d8-1",
+          "time": "07:30",
+          "type": "note",
+          "text": "早上体验 Yoga Barn 课程"
+        },
+        {
+          "id": "d8-2",
+          "time": "10:00",
+          "type": "note",
+          "text": "返回酒店修整，慢悠悠退房"
+        },
+        {
+          "id": "d8-d1",
+          "time": "13:00",
+          "type": "drive",
+          "text": "专车前往乌鲁瓦图（南部海边）"
+        },
+        {
+          "id": "d8-3",
+          "time": "14:00",
+          "type": "attraction",
+          "text": "乌鲁瓦图情人崖（俯瞰震撼的悬崖海景景观）"
+        },
+        {
+          "id": "d8-4",
+          "time": "15:30",
+          "type": "restaurant",
+          "text": "午餐：悬崖海景餐厅 Malini（餐食费用自理）"
+        },
+        {
+          "id": "d8-d2",
+          "time": "17:00",
+          "type": "drive",
+          "text": "前往 White Rock Beach Club"
+        },
+        {
+          "id": "d8-5",
+          "time": "17:30",
+          "type": "attraction",
+          "text": "White Rock Beach Club 看落日"
+        },
+        {
+          "id": "d8-d3",
+          "time": "19:00",
+          "type": "drive",
+          "text": "前往阿雅娜酒店"
+        },
+        {
+          "id": "d8-6",
+          "time": "19:30",
+          "type": "check-in",
+          "text": "入住闻名世界的 AYANA Resort Bali（Ocean View Room 海景房）"
+        }
+      ]
+    },
+    {
+      "day": 9,
+      "date": "2026-10-02",
+      "title": "巴厘岛 D5 · 阿雅娜全天度假",
+      "locations": [
+        "AYANA Resort Bali",
+        "The Villas at AYANA"
+      ],
+      "schedule": [
+        {
+          "id": "d9-1",
+          "time": "",
+          "type": "note",
+          "text": "自然醒，酒店早餐，开启阿雅娜躺平日"
+        },
+        {
+          "id": "d9-t1",
+          "time": "12:00",
+          "type": "transfer",
+          "text": "从阿雅娜酒店换房至阿雅娜别墅（专属电瓶车服务）"
+        },
+        {
+          "id": "d9-2",
+          "time": "13:00",
+          "type": "check-in",
+          "text": "入住 The Villas at AYANA（一室海景泳池别墅，24小时私人管家）"
+        },
+        {
+          "id": "d9-3",
+          "time": "14:00",
+          "type": "attraction",
+          "text": "畅游 H2O 网红无边泳池"
+        },
+        {
+          "id": "d9-4",
+          "time": "16:00",
+          "type": "attraction",
+          "text": "打卡萨卡博物馆、别墅图书馆"
+        },
+        {
+          "id": "d9-5",
+          "time": "17:00",
+          "type": "attraction",
+          "text": "库布沙滩漫步，打卡各网红悬崖海景泳池"
+        },
+        {
+          "id": "d9-6",
+          "time": "18:00",
+          "type": "attraction",
+          "text": "傍晚迎夕阳晚霞，前往全球十大最美日落 · 岩石酒吧（VILLA专属优先区域通道）"
+        }
+      ]
+    },
+    {
+      "day": 10,
+      "date": "2026-10-03",
+      "title": "巴厘岛 D6 · 阿雅娜全天度假",
+      "locations": [
+        "The Villas at AYANA"
+      ],
+      "schedule": [
+        {
+          "id": "d10-1",
+          "time": "",
+          "type": "note",
+          "text": "自然醒，别墅早餐，继续躺平"
+        },
+        {
+          "id": "d10-2",
+          "time": "10:00",
+          "type": "attraction",
+          "text": "畅游 H2O 网红无边泳池"
+        },
+        {
+          "id": "d10-3",
+          "time": "15:00",
+          "type": "attraction",
+          "text": "打卡萨卡博物馆、别墅图书馆、库布沙滩漫步"
+        },
+        {
+          "id": "d10-4",
+          "time": "17:00",
+          "type": "attraction",
+          "text": "打卡各网红悬崖海景泳池"
+        },
+        {
+          "id": "d10-5",
+          "time": "18:00",
+          "type": "attraction",
+          "text": "傍晚迎夕阳晚霞，岩石酒吧看日落（VILLA专属优先区域通道）"
+        }
+      ]
+    },
+    {
+      "day": 11,
+      "date": "2026-10-04",
+      "title": "巴厘岛 D7 · 返程 · 经新加坡回深圳",
+      "locations": [
+        "The Villas at AYANA",
+        "巴厘岛登巴萨机场",
+        "新加坡樟宜机场",
+        "香港国际机场",
+        "深圳湾口岸",
+        "万庭大厦"
+      ],
+      "schedule": [
+        {
+          "id": "d11-1",
+          "time": "09:00",
+          "type": "note",
+          "text": "退房，专车送达巴厘岛机场"
+        },
+        {
+          "id": "d11-d1",
+          "time": "10:00",
+          "type": "drive",
+          "text": "专车送机前往登巴萨机场"
+        },
+        {
+          "id": "d11-2",
+          "time": "11:20",
+          "type": "flight",
+          "text": "TR281 酷航 起飞（巴厘岛 → 新加坡，联程票行李直达香港）"
+        },
+        {
+          "id": "d11-3",
+          "time": "14:10",
+          "type": "transfer",
+          "text": "落地樟宜T1中转（同楼中转，75分钟衔接，走中转通道前往TR982登机口）"
+        },
+        {
+          "id": "d11-4",
+          "time": "15:25",
+          "type": "flight",
+          "text": "TR982 酷航 起飞（新加坡 → 香港）"
+        },
+        {
+          "id": "d11-5",
+          "time": "19:45",
+          "type": "flight",
+          "text": "落地香港国际机场T1"
+        },
+        {
+          "id": "d11-6",
+          "time": "20:30",
+          "type": "transfer",
+          "text": "香港机场乘跨境巴士回深圳湾口岸（含过关约1-1.5小时，落地后尽快购票乘车，留意末班车）"
+        },
+        {
+          "id": "d11-7",
+          "time": "22:30",
+          "type": "return",
+          "text": "回家（万庭大厦）"
+        }
+      ]
+    },
+    {
+      "day": 12,
+      "date": "2026-10-05",
+      "title": "待定",
+      "locations": [
+        "深圳"
+      ],
+      "schedule": [
+        {
+          "id": "d12-1",
+          "time": "",
+          "type": "note",
+          "text": "行程待定"
+        }
+      ]
+    },
+    {
+      "day": 13,
+      "date": "2026-10-06",
+      "title": "待定",
+      "locations": [
+        "深圳"
+      ],
+      "schedule": [
+        {
+          "id": "d13-1",
+          "time": "",
+          "type": "note",
+          "text": "行程待定"
+        }
+      ]
+    },
+    {
+      "day": 14,
+      "date": "2026-10-07",
+      "title": "待定",
+      "locations": [
+        "深圳"
+      ],
+      "schedule": [
+        {
+          "id": "d14-1",
+          "time": "",
+          "type": "note",
+          "text": "行程待定"
+        }
+      ]
+    },
+    {
+      "day": 15,
+      "date": "2026-10-08",
+      "title": "爸妈返程回长春",
+      "locations": [
+        "万庭大厦",
+        "深圳宝安机场T3"
+      ],
+      "schedule": [
+        {
+          "id": "d15-1",
+          "time": "12:00",
+          "type": "drive",
+          "text": "送爸妈前往深圳宝安机场T3（南航值机柜台A03-A11/B05-B11）"
+        },
+        {
+          "id": "d15-2",
+          "time": "14:10",
+          "type": "flight",
+          "text": "CZ6358 南方航空 起飞（深圳宝安T3 → 长春龙嘉T2）"
+        },
+        {
+          "id": "d15-3",
+          "time": "18:35",
+          "type": "flight",
+          "text": "抵达长春龙嘉机场T2，行程结束"
+        }
+      ]
+    }
+  ],
+  "places": [
+    {
+      "id": "home",
+      "name": "万庭大厦",
+      "cityOrArea": "深圳南山"
+    },
+    {
+      "id": "salon",
+      "name": "大冲商务中心A座",
+      "address": "深圳市南山区大冲商务中心A座6楼615（导航：大冲商务中心A座停车场）",
+      "cityOrArea": "深圳南山"
+    },
+    {
+      "id": "seafood",
+      "name": "舟市蒸汽海鲜自助",
+      "address": "福田卓悦店",
+      "cityOrArea": "深圳福田"
+    },
+    {
+      "id": "concert-venue",
+      "name": "深圳大运中心体育场",
+      "address": "深圳市龙岗区龙翔大道3001号",
+      "cityOrArea": "深圳龙岗"
+    },
+    {
+      "id": "shenzhenwan",
+      "name": "深圳湾口岸",
+      "cityOrArea": "深圳南山"
+    },
+    {
+      "id": "hkg-airport",
+      "name": "香港国际机场T1",
+      "cityOrArea": "中国香港"
+    },
+    {
+      "id": "mercure",
+      "name": "Mercure ICON Singapore City Centre",
+      "address": "8 Club Street, 069472",
+      "cityOrArea": "新加坡 牛车水"
+    },
+    {
+      "id": "yakun",
+      "name": "亚坤咖椰吐司总店",
+      "address": "18 China Street #01-01, Far East Square 远东广场",
+      "cityOrArea": "新加坡 牛车水"
+    },
+    {
+      "id": "tree-tunnel",
+      "name": "富康宁树洞",
+      "address": "Fort Canning Tree Tunnel, 51 Canning Rise",
+      "cityOrArea": "新加坡"
+    },
+    {
+      "id": "hill-street",
+      "name": "旧禧街警察局",
+      "address": "140 Hill Street",
+      "cityOrArea": "新加坡"
+    },
+    {
+      "id": "songfa",
+      "name": "松发肉骨茶",
+      "address": "11 New Bridge Road 克拉码头总店",
+      "cityOrArea": "新加坡 克拉码头"
+    },
+    {
+      "id": "merlion",
+      "name": "鱼尾狮公园",
+      "address": "Merlion Park",
+      "cityOrArea": "新加坡 滨海湾"
+    },
+    {
+      "id": "gallery-sg",
+      "name": "新加坡国家美术馆",
+      "address": "1 St. Andrew's Rd",
+      "cityOrArea": "新加坡"
+    },
+    {
+      "id": "jumbo",
+      "name": "珍宝海鲜（河滨店）",
+      "address": "Riverside Point, 30 Merchant Road",
+      "cityOrArea": "新加坡 克拉码头"
+    },
+    {
+      "id": "jewel",
+      "name": "星耀樟宜",
+      "address": "Jewel Changi Airport",
+      "cityOrArea": "新加坡 樟宜"
+    },
+    {
+      "id": "dps-airport",
+      "name": "巴厘岛登巴萨国际机场",
+      "cityOrArea": "巴厘岛"
+    },
+    {
+      "id": "aryaduta",
+      "name": "Aryaduta Bali",
+      "address": "库塔区域",
+      "cityOrArea": "巴厘岛 库塔"
+    },
+    {
+      "id": "alaya",
+      "name": "Alaya Resort Ubud",
+      "cityOrArea": "巴厘岛 乌布"
+    },
+    {
+      "id": "tukad-falls",
+      "name": "Tukad Cepung 瀑布",
+      "cityOrArea": "巴厘岛 乌布"
+    },
+    {
+      "id": "ubud-market",
+      "name": "乌布传统艺术集市",
+      "cityOrArea": "巴厘岛 乌布"
+    },
+    {
+      "id": "uluwatu",
+      "name": "乌鲁瓦图情人崖",
+      "cityOrArea": "巴厘岛 乌鲁瓦图"
+    },
+    {
+      "id": "white-rock",
+      "name": "White Rock Beach Club",
+      "cityOrArea": "巴厘岛 乌鲁瓦图"
+    },
+    {
+      "id": "ayana",
+      "name": "AYANA Resort Bali",
+      "cityOrArea": "巴厘岛 金巴兰"
+    },
+    {
+      "id": "ayana-villas",
+      "name": "The Villas at AYANA",
+      "cityOrArea": "巴厘岛 金巴兰"
+    }
+  ],
+  "restaurants": [],
+  "bookingsAndTickets": [],
+  "ticketPlanning": {
+    "statusStorage": "local",
+    "statusStorageNote": "门票状态默认只保存在当前浏览器。",
+    "items": [
+      {
+        "id": "ticket-gem",
+        "day": 2,
+        "name": "邓紫棋 I AM GLORIA 世界巡演 · 深圳站",
+        "requirement": "advance-recommended",
+        "purchaseStatus": "purchased",
+        "scheduleMatchTerms": [
+          "邓紫棋",
+          "演唱会"
+        ],
+        "note": "实名制入场（人票证一致，带身份证件）；17:00开始检票；座位信息开票后补充（开演前两天开座）；禁带自拍杆/灯牌/瓶装水/长柄伞/超2万毫安充电宝"
+      }
+    ]
+  },
+  "preTrip": {
+    "packingItems": [
+      {
+        "id": "todo-visa",
+        "text": "巴厘岛落地签费用：约35美金/人（落地办理）",
+        "completed": false
+      },
+      {
+        "id": "todo-shoes",
+        "text": "带防滑溯溪鞋（Tukad Cepung 瀑布溯溪用）",
+        "completed": false
+      },
+      {
+        "id": "todo-train",
+        "text": "购买9.26-27珠海/佛山火车票（视购票情况定行程）",
+        "completed": false
+      },
+      {
+        "id": "todo-seat",
+        "text": "演唱会开座位后确认座位信息（开演前两天开座）",
+        "completed": false
+      }
+    ],
+    "preparationsExplicitlyMentioned": [],
+    "missingNote": ""
+  },
+  "mapLinks": {
+    "providedGoogleMapsLinks": [],
+    "note": "",
+    "cityLevelNavigationDisabled": false,
+    "navigationPolicy": {
+      "noNavigationTypes": [
+        "flight",
+        "note",
+        "rest"
+      ],
+      "selfNavigationTypes": [
+        "drive",
+        "return",
+        "transfer",
+        "check-in",
+        "check-out",
+        "restaurant",
+        "attraction",
+        "walk",
+        "hike"
+      ]
+    },
+    "navigationPlaces": []
+  },
+  "issuesAndUncertainties": [],
+  "map": {
+    "schemaVersion": "1.0-lite",
+    "mapMode": "template-auto",
+    "templateId": "auto",
+    "disclaimer": "本图仅表达地点的相对方位与路线顺序，不代表真实比例或精确地理边界。",
+    "regions": [
+      {
+        "id": "sg",
+        "label": "新加坡",
+        "countryCode": "SG"
+      },
+      {
+        "id": "bali",
+        "label": "印度尼西亚 · 巴厘岛",
+        "countryCode": "ID"
+      }
+    ],
+    "places": [
+      {
+        "id": "mercure",
+        "name": "美居ICON酒店",
+        "geo": {
+          "lat": 1.281,
+          "lng": 103.8458
+        },
+        "mapRegionId": "sg"
+      },
+      {
+        "id": "yakun",
+        "name": "亚坤总店",
+        "geo": {
+          "lat": 1.2835,
+          "lng": 103.8467
+        },
+        "mapRegionId": "sg"
+      },
+      {
+        "id": "tree-tunnel",
+        "name": "富康宁树洞",
+        "geo": {
+          "lat": 1.2955,
+          "lng": 103.8459
+        },
+        "mapRegionId": "sg"
+      },
+      {
+        "id": "hill-street",
+        "name": "旧禧街警察局",
+        "geo": {
+          "lat": 1.2906,
+          "lng": 103.8478
+        },
+        "mapRegionId": "sg"
+      },
+      {
+        "id": "songfa",
+        "name": "松发肉骨茶",
+        "geo": {
+          "lat": 1.2885,
+          "lng": 103.8447
+        },
+        "mapRegionId": "sg"
+      },
+      {
+        "id": "merlion",
+        "name": "鱼尾狮公园",
+        "geo": {
+          "lat": 1.2869,
+          "lng": 103.8546
+        },
+        "mapRegionId": "sg"
+      },
+      {
+        "id": "gallery-sg",
+        "name": "国家美术馆",
+        "geo": {
+          "lat": 1.2906,
+          "lng": 103.8518
+        },
+        "mapRegionId": "sg"
+      },
+      {
+        "id": "jumbo",
+        "name": "珍宝海鲜河滨店",
+        "geo": {
+          "lat": 1.2887,
+          "lng": 103.8462
+        },
+        "mapRegionId": "sg"
+      },
+      {
+        "id": "jewel",
+        "name": "星耀樟宜",
+        "geo": {
+          "lat": 1.3586,
+          "lng": 103.9889
+        },
+        "mapRegionId": "sg"
+      },
+      {
+        "id": "dps-airport",
+        "name": "登巴萨机场",
+        "geo": {
+          "lat": -8.7482,
+          "lng": 115.1675
+        },
+        "mapRegionId": "bali"
+      },
+      {
+        "id": "aryaduta",
+        "name": "Aryaduta Bali",
+        "geo": {
+          "lat": -8.7183,
+          "lng": 115.1787
+        },
+        "mapRegionId": "bali"
+      },
+      {
+        "id": "alaya",
+        "name": "Alaya乌布酒店",
+        "geo": {
+          "lat": -8.5044,
+          "lng": 115.2593
+        },
+        "mapRegionId": "bali"
+      },
+      {
+        "id": "tukad-falls",
+        "name": "Tukad Cepung瀑布",
+        "geo": {
+          "lat": -8.4089,
+          "lng": 115.3134
+        },
+        "mapRegionId": "bali"
+      },
+      {
+        "id": "ubud-market",
+        "name": "乌布艺术集市",
+        "geo": {
+          "lat": -8.5069,
+          "lng": 115.2625
+        },
+        "mapRegionId": "bali"
+      },
+      {
+        "id": "uluwatu",
+        "name": "乌鲁瓦图情人崖",
+        "geo": {
+          "lat": -8.8291,
+          "lng": 115.0849
+        },
+        "mapRegionId": "bali"
+      },
+      {
+        "id": "white-rock",
+        "name": "White Rock海滩俱乐部",
+        "geo": {
+          "lat": -8.812,
+          "lng": 115.0902
+        },
+        "mapRegionId": "bali"
+      },
+      {
+        "id": "ayana",
+        "name": "阿雅娜度假酒店",
+        "geo": {
+          "lat": -8.7914,
+          "lng": 115.1473
+        },
+        "mapRegionId": "bali"
+      },
+      {
+        "id": "ayana-villas",
+        "name": "阿雅娜度假别墅",
+        "geo": {
+          "lat": -8.7886,
+          "lng": 115.144
+        },
+        "mapRegionId": "bali"
+      }
+    ],
+    "routes": [
+      {
+        "day": 5,
+        "placeIds": [
+          "mercure",
+          "yakun",
+          "tree-tunnel",
+          "hill-street",
+          "songfa",
+          "merlion",
+          "gallery-sg",
+          "jumbo",
+          "jewel"
+        ]
+      },
+      {
+        "day": 6,
+        "placeIds": [
+          "dps-airport",
+          "aryaduta",
+          "alaya"
+        ]
+      },
+      {
+        "day": 7,
+        "placeIds": [
+          "alaya",
+          "tukad-falls",
+          "ubud-market",
+          "alaya"
+        ]
+      },
+      {
+        "day": 8,
+        "placeIds": [
+          "alaya",
+          "uluwatu",
+          "white-rock",
+          "ayana"
+        ]
+      },
+      {
+        "day": 9,
+        "placeIds": [
+          "ayana",
+          "ayana-villas"
+        ]
+      },
+      {
+        "day": 11,
+        "placeIds": [
+          "ayana-villas",
+          "dps-airport"
+        ]
+      }
+    ],
+    "dailyRoutes": [
+      {
+        "day": 5,
+        "placeIds": [
+          "mercure",
+          "yakun",
+          "tree-tunnel",
+          "hill-street",
+          "songfa",
+          "merlion",
+          "gallery-sg",
+          "jumbo",
+          "jewel"
+        ],
+        "scheduleItems": [
+          [
+            "d5-w1"
+          ],
+          [
+            "d5-t1"
+          ],
+          [
+            "d5-h1"
+          ],
+          [
+            "d5-w2"
+          ],
+          [
+            "d5-w3"
+          ],
+          [
+            "d5-w4"
+          ],
+          [
+            "d5-t2"
+          ],
+          [
+            "d5-t3"
+          ]
+        ]
+      },
+      {
+        "day": 6,
+        "placeIds": [
+          "dps-airport",
+          "aryaduta",
+          "alaya"
+        ],
+        "scheduleItems": [
+          [
+            "d6-t1"
+          ],
+          [
+            "d6-d1"
+          ]
+        ]
+      },
+      {
+        "day": 7,
+        "placeIds": [
+          "alaya",
+          "tukad-falls",
+          "ubud-market",
+          "alaya"
+        ],
+        "scheduleItems": [
+          [
+            "d7-d1"
+          ],
+          [
+            "d7-d2"
+          ],
+          [
+            "d7-d3"
+          ]
+        ]
+      },
+      {
+        "day": 8,
+        "placeIds": [
+          "alaya",
+          "uluwatu",
+          "white-rock",
+          "ayana"
+        ],
+        "scheduleItems": [
+          [
+            "d8-d1"
+          ],
+          [
+            "d8-d2"
+          ],
+          [
+            "d8-d3"
+          ]
+        ]
+      },
+      {
+        "day": 9,
+        "placeIds": [
+          "ayana",
+          "ayana-villas"
+        ],
+        "scheduleItems": [
+          [
+            "d9-t1"
+          ]
+        ]
+      },
+      {
+        "day": 11,
+        "placeIds": [
+          "ayana-villas",
+          "dps-airport"
+        ],
+        "scheduleItems": [
+          [
+            "d11-d1"
+          ]
+        ]
+      }
+    ]
+  },
+  "routeMap": {
+    "defaultRegionId": "sg",
+    "regions": [
+      {
+        "id": "sg",
+        "label": "新加坡",
+        "countryCode": "SG",
+        "scope": "template-schematic",
+        "mapMode": "frozen-template",
+        "templateId": "upland-basin",
+        "mapModeReason": "dense-place-cluster",
+        "mapModeMetrics": {
+          "placeCount": 9,
+          "geoPlaceCount": 9,
+          "widthKm": 16,
+          "heightKm": 8.61,
+          "spanKm": 18.1,
+          "averageNearestKm": 2.19,
+          "components": 1,
+          "largestLegKm": 17.67,
+          "jumpRatio": 17.67
+        },
+        "days": [
+          5
+        ],
+        "canvas": {
+          "width": 1448,
+          "height": 1086
+        },
+        "projection": {
+          "type": "relative-schematic",
+          "bounds": null
+        },
+        "baseImage": "assets/maps/templates/template-06-upland-basin.webp",
+        "title": "新加坡 · 旅行路线",
+        "ariaLabel": "新加坡模板化旅行路线示意图，共1天",
+        "disclaimer": "本图仅表达地点的相对方位与路线顺序，不代表真实比例或精确地理边界。",
+        "heading": {
+          "text": "新加坡",
+          "x": 33,
+          "y": 105,
+          "size": 40
+        },
+        "legend": {
+          "x": 35,
+          "y": 168,
+          "gap": 43
+        },
+        "annotations": [],
+        "routes": [
+          {
+            "day": 5,
+            "color": "#8865a5",
+            "placeIds": [
+              "mercure",
+              "yakun",
+              "tree-tunnel",
+              "hill-street",
+              "songfa",
+              "merlion",
+              "gallery-sg",
+              "jumbo",
+              "jewel"
+            ],
+            "paths": [
+              "M487.05 736.04 C532.4 689.6 586.7 659.1 646.71 646.36 C609.0 599.9 561.7 567.4 507.6 550.67 C582.7 596.5 639.4 659.1 674.39 734.59 C612.2 681.9 540.6 650.3 464 641.57 C512.4 659.2 552.3 688.5 581.14 727.76 C607.8 671.1 617.0 611.7 608.17 553.04 C598.5 586.3 580.6 614.2 555.56 635.31 C771.5 567.8 974.8 473.0 1153.4 356.69"
+            ],
+            "overviewPaths": [
+              "M487.05 736.04 C532.4 689.6 586.7 659.1 646.71 646.36 C609.0 599.9 561.7 567.4 507.6 550.67 C582.7 596.5 639.4 659.1 674.39 734.59 C612.2 681.9 540.6 650.3 464 641.57 C512.4 659.2 552.3 688.5 581.14 727.76 C607.8 671.1 617.0 611.7 608.17 553.04 C598.5 586.3 580.6 614.2 555.56 635.31 C771.5 567.8 974.8 473.0 1153.4 356.69"
+            ]
+          }
+        ],
+        "places": [
+          {
+            "id": "mercure",
+            "x": 487.05,
+            "y": 736.04,
+            "color": "#8865a5",
+            "tx": 519.05,
+            "ty": 786.04,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "美居ICON酒店"
+            ],
+            "query": "美居ICON酒店 新加坡",
+            "geo": {
+              "lat": 1.281,
+              "lng": 103.8458
+            },
+            "days": [
+              5
+            ]
+          },
+          {
+            "id": "yakun",
+            "x": 646.71,
+            "y": 646.36,
+            "color": "#8865a5",
+            "tx": 724.71,
+            "ty": 584.36,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "亚坤总店"
+            ],
+            "query": "亚坤总店 新加坡",
+            "geo": {
+              "lat": 1.2835,
+              "lng": 103.8467
+            },
+            "days": [
+              5
+            ]
+          },
+          {
+            "id": "tree-tunnel",
+            "x": 507.6,
+            "y": 550.67,
+            "color": "#8865a5",
+            "tx": 585.6,
+            "ty": 488.67,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "富康宁树洞"
+            ],
+            "query": "富康宁树洞 新加坡",
+            "geo": {
+              "lat": 1.2955,
+              "lng": 103.8459
+            },
+            "days": [
+              5
+            ]
+          },
+          {
+            "id": "hill-street",
+            "x": 674.39,
+            "y": 734.59,
+            "color": "#8865a5",
+            "tx": 812.39,
+            "ty": 646.59,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "旧禧街警察局"
+            ],
+            "query": "旧禧街警察局 新加坡",
+            "geo": {
+              "lat": 1.2906,
+              "lng": 103.8478
+            },
+            "days": [
+              5
+            ]
+          },
+          {
+            "id": "songfa",
+            "x": 464,
+            "y": 641.57,
+            "color": "#8865a5",
+            "tx": 326,
+            "ty": 553.57,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "松发肉骨茶"
+            ],
+            "query": "松发肉骨茶 新加坡",
+            "geo": {
+              "lat": 1.2885,
+              "lng": 103.8447
+            },
+            "days": [
+              5
+            ]
+          },
+          {
+            "id": "merlion",
+            "x": 581.14,
+            "y": 727.76,
+            "color": "#8865a5",
+            "tx": 719.14,
+            "ty": 829.76,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "鱼尾狮公园"
+            ],
+            "query": "鱼尾狮公园 新加坡",
+            "geo": {
+              "lat": 1.2869,
+              "lng": 103.8546
+            },
+            "days": [
+              5
+            ]
+          },
+          {
+            "id": "gallery-sg",
+            "x": 608.17,
+            "y": 553.04,
+            "color": "#8865a5",
+            "tx": 530.17,
+            "ty": 491.04,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "国家美术馆"
+            ],
+            "query": "国家美术馆 新加坡",
+            "geo": {
+              "lat": 1.2906,
+              "lng": 103.8518
+            },
+            "days": [
+              5
+            ]
+          },
+          {
+            "id": "jumbo",
+            "x": 555.56,
+            "y": 635.31,
+            "color": "#8865a5",
+            "tx": 523.56,
+            "ty": 685.31,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "珍宝海鲜河滨店"
+            ],
+            "query": "珍宝海鲜河滨店 新加坡",
+            "geo": {
+              "lat": 1.2887,
+              "lng": 103.8462
+            },
+            "days": [
+              5
+            ]
+          },
+          {
+            "id": "jewel",
+            "x": 1153.4,
+            "y": 356.69,
+            "color": "#8865a5",
+            "tx": 1231.4,
+            "ty": 294.69,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "星耀樟宜"
+            ],
+            "query": "星耀樟宜 新加坡",
+            "geo": {
+              "lat": 1.3586,
+              "lng": 103.9889
+            },
+            "days": [
+              5
+            ]
+          }
+        ],
+        "overviewPlaceIds": [
+          "mercure",
+          "yakun",
+          "tree-tunnel",
+          "hill-street",
+          "songfa",
+          "merlion",
+          "gallery-sg",
+          "jumbo",
+          "jewel"
+        ],
+        "dailyLayouts": {
+          "5": {
+            "places": [
+              "mercure",
+              "yakun",
+              "tree-tunnel",
+              "hill-street",
+              "songfa",
+              "merlion",
+              "gallery-sg",
+              "jumbo",
+              "jewel"
+            ],
+            "labels": {
+              "mercure": {
+                "x": 519.05,
+                "y": 786.04,
+                "anchor": "start"
+              },
+              "yakun": {
+                "x": 724.71,
+                "y": 584.36,
+                "anchor": "start"
+              },
+              "tree-tunnel": {
+                "x": 585.6,
+                "y": 488.67,
+                "anchor": "start"
+              },
+              "hill-street": {
+                "x": 812.39,
+                "y": 646.59,
+                "anchor": "start"
+              },
+              "songfa": {
+                "x": 326,
+                "y": 553.57,
+                "anchor": "end"
+              },
+              "merlion": {
+                "x": 719.14,
+                "y": 829.76,
+                "anchor": "start"
+              },
+              "gallery-sg": {
+                "x": 530.17,
+                "y": 491.04,
+                "anchor": "end"
+              },
+              "jumbo": {
+                "x": 523.56,
+                "y": 685.31,
+                "anchor": "end"
+              },
+              "jewel": {
+                "x": 1231.4,
+                "y": 294.69,
+                "anchor": "start"
+              }
+            },
+            "transport": [
+              {
+                "items": [
+                  "d5-w1"
+                ],
+                "x": 566.88,
+                "y": 691.2
+              },
+              {
+                "items": [
+                  "d5-t1"
+                ],
+                "x": 577.15,
+                "y": 598.51
+              },
+              {
+                "items": [
+                  "d5-h1"
+                ],
+                "x": 591,
+                "y": 642.63
+              },
+              {
+                "items": [
+                  "d5-w2"
+                ],
+                "x": 569.19,
+                "y": 688.08
+              },
+              {
+                "items": [
+                  "d5-w3"
+                ],
+                "x": 522.57,
+                "y": 684.66
+              },
+              {
+                "items": [
+                  "d5-w4"
+                ],
+                "x": 594.65,
+                "y": 640.4
+              },
+              {
+                "items": [
+                  "d5-t2"
+                ],
+                "x": 581.87,
+                "y": 594.17
+              },
+              {
+                "items": [
+                  "d5-t3"
+                ],
+                "x": 854.48,
+                "y": 496
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "bali",
+        "label": "印度尼西亚 · 巴厘岛",
+        "countryCode": "ID",
+        "scope": "template-schematic",
+        "mapMode": "frozen-template",
+        "templateId": "urban-radial",
+        "mapModeReason": "dense-place-cluster",
+        "mapModeMetrics": {
+          "placeCount": 9,
+          "geoPlaceCount": 9,
+          "widthKm": 25.07,
+          "heightKm": 46.64,
+          "spanKm": 53.05,
+          "averageNearestKm": 2.79,
+          "components": 1,
+          "largestLegKm": 40.88,
+          "jumpRatio": 6.12
+        },
+        "days": [
+          6,
+          7,
+          8,
+          9,
+          11
+        ],
+        "canvas": {
+          "width": 1448,
+          "height": 1086
+        },
+        "projection": {
+          "type": "relative-schematic",
+          "bounds": null
+        },
+        "baseImage": "assets/maps/templates/template-04-urban.webp",
+        "title": "印度尼西亚 · 巴厘岛 · 旅行路线",
+        "ariaLabel": "印度尼西亚 · 巴厘岛模板化旅行路线示意图，共5天",
+        "disclaimer": "本图仅表达地点的相对方位与路线顺序，不代表真实比例或精确地理边界。",
+        "heading": {
+          "text": "印度尼西亚 · 巴厘岛",
+          "x": 33,
+          "y": 105,
+          "size": 40
+        },
+        "legend": {
+          "x": 35,
+          "y": 168,
+          "gap": 43
+        },
+        "annotations": [],
+        "routes": [
+          {
+            "day": 6,
+            "color": "#df6185",
+            "placeIds": [
+              "dps-airport",
+              "aryaduta",
+              "alaya"
+            ],
+            "paths": [
+              "M848.64 719.97 C844.3 685.4 830.9 654.8 809.24 629.88 C807.9 524.9 835.1 428.0 889.23 344.76"
+            ],
+            "overviewPaths": [
+              "M848.64 719.97 C844.3 685.4 830.9 654.8 809.24 629.88 C807.9 524.9 835.1 428.0 889.23 344.76"
+            ]
+          },
+          {
+            "day": 7,
+            "color": "#397dc1",
+            "placeIds": [
+              "alaya",
+              "tukad-falls",
+              "ubud-market",
+              "alaya"
+            ],
+            "paths": [
+              "M889.23 344.76 C915.9 299.9 952.6 265.8 997.16 244.45 C970.3 295.8 959.4 350.3 965.24 404.83 C933.4 392.0 907.5 371.6 889.23 344.76"
+            ],
+            "overviewPaths": [
+              "M889.23 344.76 C915.9 299.9 952.6 265.8 997.16 244.45 C970.3 295.8 959.4 350.3 965.24 404.83 C933.4 392.0 907.5 371.6 889.23 344.76"
+            ]
+          },
+          {
+            "day": 8,
+            "color": "#e77e22",
+            "placeIds": [
+              "alaya",
+              "uluwatu",
+              "white-rock",
+              "ayana"
+            ],
+            "paths": [
+              "M889.23 344.76 C797.0 504.4 732.7 674.7 700.39 845.56 C677.2 819.9 662.8 790.0 658.01 757.64 C699.4 787.4 745.6 803.5 793.86 805.14"
+            ],
+            "overviewPaths": [
+              "M889.23 344.76 C797.0 504.4 732.7 674.7 700.39 845.56 C677.2 819.9 662.8 790.0 658.01 757.64 C699.4 787.4 745.6 803.5 793.86 805.14"
+            ]
+          },
+          {
+            "day": 9,
+            "color": "#618344",
+            "placeIds": [
+              "ayana",
+              "ayana-villas"
+            ],
+            "paths": [
+              "M793.86 805.14 C770.5 780.0 755.8 750.5 750.71 718.44"
+            ],
+            "overviewPaths": [
+              "M793.86 805.14 C770.5 780.0 755.8 750.5 750.71 718.44"
+            ]
+          },
+          {
+            "day": 11,
+            "color": "#8865a5",
+            "placeIds": [
+              "ayana-villas",
+              "dps-airport"
+            ],
+            "paths": [
+              "M750.71 718.44 C784.2 709.2 817.5 709.7 848.64 719.97"
+            ],
+            "overviewPaths": [
+              "M750.71 718.44 C784.2 709.2 817.5 709.7 848.64 719.97"
+            ]
+          }
+        ],
+        "places": [
+          {
+            "id": "dps-airport",
+            "x": 848.64,
+            "y": 719.97,
+            "color": "#df6185",
+            "tx": 880.64,
+            "ty": 687.97,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "登巴萨机场"
+            ],
+            "query": "登巴萨机场 印度尼西亚 · 巴厘岛",
+            "geo": {
+              "lat": -8.7482,
+              "lng": 115.1675
+            },
+            "days": [
+              6,
+              11
+            ]
+          },
+          {
+            "id": "aryaduta",
+            "x": 809.24,
+            "y": 629.88,
+            "color": "#df6185",
+            "tx": 777.24,
+            "ty": 597.88,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "Aryaduta Bali"
+            ],
+            "query": "Aryaduta Bali 印度尼西亚 · 巴厘岛",
+            "geo": {
+              "lat": -8.7183,
+              "lng": 115.1787
+            },
+            "days": [
+              6
+            ]
+          },
+          {
+            "id": "alaya",
+            "x": 889.23,
+            "y": 344.76,
+            "color": "#df6185",
+            "tx": 811.23,
+            "ty": 282.76,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "Alaya乌布酒店"
+            ],
+            "query": "Alaya乌布酒店 印度尼西亚 · 巴厘岛",
+            "geo": {
+              "lat": -8.5044,
+              "lng": 115.2593
+            },
+            "days": [
+              6,
+              7,
+              8
+            ]
+          },
+          {
+            "id": "tukad-falls",
+            "x": 997.16,
+            "y": 244.45,
+            "color": "#397dc1",
+            "tx": 919.16,
+            "ty": 182.45,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "Tukad Cepung瀑布"
+            ],
+            "query": "Tukad Cepung瀑布 印度尼西亚 · 巴厘岛",
+            "geo": {
+              "lat": -8.4089,
+              "lng": 115.3134
+            },
+            "days": [
+              7
+            ]
+          },
+          {
+            "id": "ubud-market",
+            "x": 965.24,
+            "y": 404.83,
+            "color": "#397dc1",
+            "tx": 1103.24,
+            "ty": 316.83,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "乌布艺术集市"
+            ],
+            "query": "乌布艺术集市 印度尼西亚 · 巴厘岛",
+            "geo": {
+              "lat": -8.5069,
+              "lng": 115.2625
+            },
+            "days": [
+              7
+            ]
+          },
+          {
+            "id": "uluwatu",
+            "x": 700.39,
+            "y": 845.56,
+            "color": "#e77e22",
+            "tx": 838.39,
+            "ty": 947.56,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "乌鲁瓦图情人崖"
+            ],
+            "query": "乌鲁瓦图情人崖 印度尼西亚 · 巴厘岛",
+            "geo": {
+              "lat": -8.8291,
+              "lng": 115.0849
+            },
+            "days": [
+              8
+            ]
+          },
+          {
+            "id": "white-rock",
+            "x": 658.01,
+            "y": 757.64,
+            "color": "#e77e22",
+            "tx": 626.01,
+            "ty": 725.64,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "White Rock海滩俱乐部"
+            ],
+            "query": "White Rock海滩俱乐部 印度尼西亚 · 巴厘岛",
+            "geo": {
+              "lat": -8.812,
+              "lng": 115.0902
+            },
+            "days": [
+              8
+            ]
+          },
+          {
+            "id": "ayana",
+            "x": 793.86,
+            "y": 805.14,
+            "color": "#e77e22",
+            "tx": 871.86,
+            "ty": 881.14,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "阿雅娜度假酒店"
+            ],
+            "query": "阿雅娜度假酒店 印度尼西亚 · 巴厘岛",
+            "geo": {
+              "lat": -8.7914,
+              "lng": 115.1473
+            },
+            "days": [
+              8,
+              9
+            ]
+          },
+          {
+            "id": "ayana-villas",
+            "x": 750.71,
+            "y": 718.44,
+            "color": "#618344",
+            "tx": 828.71,
+            "ty": 794.44,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "阿雅娜度假别墅"
+            ],
+            "query": "阿雅娜度假别墅 印度尼西亚 · 巴厘岛",
+            "geo": {
+              "lat": -8.7886,
+              "lng": 115.144
+            },
+            "days": [
+              9,
+              11
+            ]
+          }
+        ],
+        "overviewPlaceIds": [
+          "dps-airport",
+          "aryaduta",
+          "alaya",
+          "tukad-falls",
+          "ubud-market",
+          "uluwatu",
+          "white-rock",
+          "ayana",
+          "ayana-villas"
+        ],
+        "dailyLayouts": {
+          "6": {
+            "places": [
+              "dps-airport",
+              "aryaduta",
+              "alaya"
+            ],
+            "labels": {
+              "dps-airport": {
+                "x": 880.64,
+                "y": 687.97,
+                "anchor": "start"
+              },
+              "aryaduta": {
+                "x": 777.24,
+                "y": 597.88,
+                "anchor": "end"
+              },
+              "alaya": {
+                "x": 811.23,
+                "y": 282.76,
+                "anchor": "end"
+              }
+            },
+            "transport": [
+              {
+                "items": [
+                  "d6-t1"
+                ],
+                "x": 828.94,
+                "y": 674.92
+              },
+              {
+                "items": [
+                  "d6-d1"
+                ],
+                "x": 849.24,
+                "y": 487.32
+              }
+            ]
+          },
+          "7": {
+            "places": [
+              "alaya",
+              "tukad-falls",
+              "ubud-market"
+            ],
+            "labels": {
+              "alaya": {
+                "x": 811.23,
+                "y": 282.76,
+                "anchor": "end"
+              },
+              "tukad-falls": {
+                "x": 919.16,
+                "y": 182.45,
+                "anchor": "end"
+              },
+              "ubud-market": {
+                "x": 1103.24,
+                "y": 316.83,
+                "anchor": "start"
+              }
+            },
+            "transport": [
+              {
+                "items": [
+                  "d7-d1"
+                ],
+                "x": 943.19,
+                "y": 294.61
+              },
+              {
+                "items": [
+                  "d7-d2"
+                ],
+                "x": 981.2,
+                "y": 324.64
+              },
+              {
+                "items": [
+                  "d7-d3"
+                ],
+                "x": 927.24,
+                "y": 374.79
+              }
+            ]
+          },
+          "8": {
+            "places": [
+              "alaya",
+              "uluwatu",
+              "white-rock",
+              "ayana"
+            ],
+            "labels": {
+              "alaya": {
+                "x": 811.23,
+                "y": 282.76,
+                "anchor": "end"
+              },
+              "uluwatu": {
+                "x": 838.39,
+                "y": 947.56,
+                "anchor": "start"
+              },
+              "white-rock": {
+                "x": 626.01,
+                "y": 725.64,
+                "anchor": "end"
+              },
+              "ayana": {
+                "x": 871.86,
+                "y": 881.14,
+                "anchor": "start"
+              }
+            },
+            "transport": [
+              {
+                "items": [
+                  "d8-d1"
+                ],
+                "x": 794.81,
+                "y": 595.16
+              },
+              {
+                "items": [
+                  "d8-d2"
+                ],
+                "x": 679.2,
+                "y": 801.6
+              },
+              {
+                "items": [
+                  "d8-d3"
+                ],
+                "x": 725.93,
+                "y": 781.39
+              }
+            ]
+          },
+          "9": {
+            "places": [
+              "ayana",
+              "ayana-villas"
+            ],
+            "labels": {
+              "ayana": {
+                "x": 871.86,
+                "y": 881.14,
+                "anchor": "start"
+              },
+              "ayana-villas": {
+                "x": 828.71,
+                "y": 794.44,
+                "anchor": "start"
+              }
+            },
+            "transport": [
+              {
+                "items": [
+                  "d9-t1"
+                ],
+                "x": 772.29,
+                "y": 761.79
+              }
+            ]
+          },
+          "11": {
+            "places": [
+              "ayana-villas",
+              "dps-airport"
+            ],
+            "labels": {
+              "ayana-villas": {
+                "x": 828.71,
+                "y": 794.44,
+                "anchor": "start"
+              },
+              "dps-airport": {
+                "x": 880.64,
+                "y": 687.97,
+                "anchor": "start"
+              }
+            },
+            "transport": [
+              {
+                "items": [
+                  "d11-d1"
+                ],
+                "x": 799.67,
+                "y": 719.21
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

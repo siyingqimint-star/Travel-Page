@@ -1,0 +1,317 @@
+/* DIY 改版样式：行程总览日卡片 / 日期条 / 天气条 / 酒店卡片与弹窗 / 底部 Tab 微调 */
+
+:root {
+  --accent: #6f9e58;
+  --accent-strong: #5d8a48;
+  --accent-soft: #eef4e6;
+  --card-radius: 22px;
+}
+
+/* ---------- 底部 Tab ---------- */
+.tab-bar .tab-bar__item.is-active { color: var(--accent-strong); }
+.tab-bar .tab-bar__item.is-active span { font-weight: 700; }
+
+/* ---------- 日期条 ---------- */
+.day-strip {
+  position: sticky;
+  top: calc(48px + var(--safe-top));
+  z-index: 15;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 10px 4px 12px;
+  margin: 0 -4px;
+  scrollbar-width: none;
+  background: linear-gradient(var(--paper) 82%, transparent);
+}
+.day-strip::-webkit-scrollbar { display: none; }
+.day-strip__item {
+  flex: 0 0 auto;
+  min-width: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 9px 12px 8px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  cursor: pointer;
+  line-height: 1.15;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.day-strip__item:active { transform: scale(0.96); }
+.day-strip__item span { font-size: 11px; color: var(--muted); }
+.day-strip__item span:first-child { font-size: 10px; letter-spacing: 0.04em; }
+.day-strip__item b { font-size: 19px; font-weight: 700; }
+.day-strip__item.is-today { border-color: var(--accent); }
+.day-strip__item.is-today span { color: var(--accent-strong); }
+.day-strip__item.is-selected {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.day-strip__item.is-selected span { color: rgba(255, 255, 255, 0.85); }
+.day-strip__dot {
+  position: absolute;
+  top: 6px;
+  right: 7px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--terracotta);
+}
+.day-strip__item.is-selected .day-strip__dot { background: #fff; }
+.day-strip__item { position: relative; }
+
+/* 单日展示模式：仅显示选中日 */
+.day-cards .day-card { display: none; }
+.day-cards .day-card.is-selected { display: block; }
+
+/* ---------- 每日卡片 ---------- */
+.day-cards { display: flex; flex-direction: column; gap: 18px; }
+.day-card {
+  background: var(--surface);
+  border-radius: var(--card-radius);
+  box-shadow: 0 8px 28px rgba(25, 47, 55, 0.07);
+  padding: 18px 18px 16px;
+  border: 1px solid rgba(215, 223, 220, 0.6);
+  scroll-margin-top: 130px;
+}
+.day-card.is-today { border-color: var(--accent); box-shadow: 0 10px 30px rgba(111, 158, 88, 0.18); }
+
+.day-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.day-card__kicker {
+  margin: 0 0 2px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+.day-card.is-today .day-card__kicker { color: var(--terracotta); }
+.day-card__header h3 { margin: 0; font-size: 21px; line-height: 1.25; }
+.day-card__title { margin: 4px 0 0; color: var(--muted); font-size: 13.5px; }
+.day-card__city {
+  flex: 0 0 auto;
+  font-size: 12px;
+  color: var(--forest);
+  background: var(--accent-soft);
+  border-radius: 999px;
+  padding: 4px 10px;
+  margin-top: 2px;
+}
+
+/* 天气条 */
+.day-card__weather {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: linear-gradient(135deg, var(--accent-soft), #f6faf1 70%);
+  border-radius: 16px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+.day-card__weather-emoji { font-size: 26px; line-height: 1.1; }
+.day-card__weather-main { min-width: 0; }
+.day-card__weather-main b { font-size: 14.5px; }
+.day-card__weather-main p { margin: 3px 0 0; font-size: 12.5px; color: #4c5f52; line-height: 1.5; }
+.day-card__weather.is-pending { opacity: 0.85; }
+
+/* 时间线 */
+.day-card__schedule {
+  list-style: none;
+  margin: 0;
+  padding: 2px 0 0;
+  position: relative;
+}
+.day-card__item {
+  display: grid;
+  grid-template-columns: 44px 26px 1fr;
+  gap: 0 8px;
+  padding: 7px 0;
+  position: relative;
+}
+.day-card__item::before {
+  content: "";
+  position: absolute;
+  left: 56px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--line);
+  opacity: 0.55;
+}
+.day-card__item:first-child::before { top: 50%; }
+.day-card__item:last-child::before { bottom: 50%; }
+.day-card__time { font-size: 12px; color: var(--muted); text-align: right; padding-top: 3px; font-variant-numeric: tabular-nums; }
+.day-card__icon {
+  position: relative;
+  z-index: 1;
+  width: 26px; height: 26px;
+  display: grid; place-items: center;
+  background: var(--paper);
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  font-size: 12.5px;
+  justify-self: center;
+}
+.day-card__text { margin: 2px 0 0; font-size: 14px; line-height: 1.55; }
+.day-card__content { min-width: 0; position: relative; z-index: 1; }
+.day-card__maplinks { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 5px; }
+.day-card__maplinks .schedule-map-link {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 999px;
+  font-size: 11.5px;
+  padding: 3px 9px;
+  cursor: pointer;
+  color: var(--lake);
+}
+.day-card__ticket {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0 10px 78px;
+  padding: 9px 12px;
+  border: 1px dashed var(--accent);
+  border-radius: 12px;
+  background: var(--accent-soft);
+}
+.day-card__ticket-status { font-size: 11.5px; color: var(--accent-strong); font-weight: 600; flex: 0 0 auto; }
+.day-card__ticket b { font-size: 12.5px; flex: 1; min-width: 0; }
+.day-card__ticket .schedule-ticket__open {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 12px;
+  padding: 4px 12px;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+/* 照片 */
+.day-card__photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+.day-card__photo {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: 0 3px 10px rgba(25, 47, 55, 0.08);
+}
+.day-card__photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.day-card__photo figcaption {
+  font-size: 11.5px;
+  color: var(--muted);
+  padding: 6px 9px 7px;
+}
+
+/* 酒店卡片 */
+.day-card__hotels { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.hotel-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.hotel-card:active { transform: scale(0.985); }
+.hotel-card__icon { font-size: 20px; }
+.hotel-card__body { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+.hotel-card__body b { font-size: 15px; }
+.hotel-card__body span { font-size: 12px; color: var(--muted); }
+.hotel-card__arrow { font-size: 22px; color: var(--muted); }
+
+/* ---------- 酒店详情弹窗 ---------- */
+#hotel-dialog {
+  border: none;
+  border-radius: 24px;
+  padding: 0;
+  width: min(430px, calc(100vw - 32px));
+  max-height: min(86vh, 720px);
+  box-shadow: 0 24px 70px rgba(19, 38, 47, 0.35);
+}
+#hotel-dialog::backdrop { background: rgba(19, 38, 47, 0.45); }
+.hotel-dialog__wrap { position: relative; }
+#hotel-dialog header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px 0;
+}
+#hotel-dialog header p { margin: 0; font-size: 12.5px; color: var(--muted); }
+#hotel-dialog-close {
+  border: none;
+  background: var(--paper);
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  font-size: 15px;
+  cursor: pointer;
+}
+#hotel-dialog-body { padding: 4px 20px 22px; overflow-y: auto; }
+#hotel-dialog-body h2 { margin: 6px 0 2px; font-size: 23px; }
+.hotel-dialog__en { margin: 0 0 10px; color: var(--muted); font-size: 13px; }
+.hotel-dialog__date { margin: 0 0 4px; font-size: 12.5px; color: var(--accent-strong); font-weight: 600; }
+.hotel-dialog__block {
+  background: var(--accent-soft);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-top: 12px;
+}
+.hotel-dialog__label { margin: 0; font-size: 11.5px; color: var(--muted); letter-spacing: 0.06em; }
+.hotel-dialog__label:not(:first-child) { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(215, 223, 220, 0.7); }
+.hotel-dialog__area { margin: 3px 0 0; font-size: 17px; font-weight: 700; }
+.hotel-dialog__address { margin: 3px 0 0; font-size: 13px; line-height: 1.55; }
+.hotel-dialog__value { margin: 3px 0 0; font-size: 13.5px; line-height: 1.6; }
+.hotel-dialog__nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--accent-strong);
+  text-decoration: none;
+  border-bottom: 1.5px solid currentColor;
+  padding-bottom: 1px;
+}
+
+/* ---------- 航班卡片浅色化 ---------- */
+.flight-card {
+  background: linear-gradient(160deg, #f7fbf8, var(--surface) 55%);
+  color: var(--ink);
+  border: 1px solid rgba(215, 223, 220, 0.8);
+}
+.flight-card__top { color: var(--muted); }
+.flight-card__airlines { color: var(--muted); }
+.flight-stop__code { color: var(--lake); }
+.flight-stop__city { color: var(--muted); }
+.flight-stop__dot { border-color: var(--lake); background: var(--surface); }
+.flight-stop__timing { color: var(--muted); }
+.flight-stop__timing b { color: var(--ink); }
+.flight-stop__timing em { color: var(--terracotta); }
+.flight-segment { color: var(--muted); }
+.flight-segment i { background: var(--line); }
+.flight-card__countdown-row { border-top: 1px solid var(--line); }
+.flight-countdown span { color: var(--muted); }
+.flight-countdown strong { color: var(--ink); }
+.flight-placeholder h3 { color: var(--ink); }
+.flight-placeholder p { color: var(--muted); }
+.flight-placeholder li { border-color: var(--line); color: var(--ink); background: var(--accent-soft); }
+.flight-placeholder__eyebrow { color: var(--terracotta); }
