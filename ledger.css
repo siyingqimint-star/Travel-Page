@@ -181,6 +181,16 @@ body[data-active-view="ledger"] .topbar { background: rgba(250, 251, 249, .93); 
 .ledger-converted-code { color: var(--lake); font: 760 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace; }
 .ledger-converted-field .ledger-input { min-height: 35px; padding: 0; border: 0; color: var(--lake); font-size: 16px; font-weight: 750; }
 .ledger-field-help { display: block; margin-top: 5px; color: #a0acad; font-size: 10px; }
+.ledger-calc-hint {
+  display: block;
+  margin-top: 4px;
+  color: #5d8a48;
+  font-size: 12.5px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.ledger-calc-hint[hidden] { display: none; }
+.ledger-calc-hint.is-error { color: #b84635; font-weight: 600; font-size: 10.5px; }
 .ledger-fieldset { margin-top: 18px; }
 .ledger-category-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 5px; }
 .ledger-category-choice { position: relative; min-height: 43px; display: grid; place-items: center; border: 1px solid transparent; border-radius: 9px; color: #768386; background: #f7f9f8; cursor: pointer; font-size: 10px; font-weight: 680; white-space: nowrap; }

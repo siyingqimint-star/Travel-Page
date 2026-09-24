@@ -229,6 +229,206 @@
     }).join("");
   }
 
+  /* ---------- 单日真实方位路线图 ----------
+     用 map.places 的经纬度做等距投影，方位与相对距离真实；
+     点之间画箭头连线并编号，长距离段（>3km）用虚线并标注公里数。 */
+  function haversineKm(a, b) {
+    const R = 6371;
+    const toRad = (deg) => (deg * Math.PI) / 180;
+    const dLat = toRad(b.lat - a.lat);
+    const dLng = toRad(b.lng - a.lng);
+    const h = Math.sin(dLat / 2) ** 2 +
+      Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLng / 2) ** 2;
+    return 2 * R * Math.asin(Math.sqrt(h));
+  }
+
+  /* 把路线按距离断层切成若干「片区」：相邻两点 >5km 时另起一张小图，
+     避免长车程把市区密集点压成一团（例如市区 8 个点 + 18km 外的樟宜机场）。 */
+  function splitRouteClusters(nodes) {
+    const clusters = [];
+    let current = [nodes[0]];
+    for (let i = 1; i < nodes.length; i += 1) {
+      const km = haversineKm(nodes[i - 1].geo, nodes[i].geo);
+      if (km > 5) {
+        current.jumpKm = km;
+        current.jumpTo = nodes[i];
+        clusters.push(current);
+        current = [nodes[i]];
+      } else {
+        current.push(nodes[i]);
+      }
+    }
+    clusters.push(current);
+    return clusters;
+  }
+
+  function renderClusterSvg(cluster, startIndex, totalCount) {
+    const W = 620;
+    const single = cluster.length === 1;
+    const H = single ? 108 : 400;
+    const PAD = single ? 40 : 74;
+
+    if (single) {
+      const only = cluster[0];
+      const no = startIndex + 1;
+      const isEnd = no === totalCount;
+      return `
+        <svg viewBox="0 0 ${W} ${H}" class="day-card__map-svg" role="img" aria-label="${escapeHtml(only.name)}">
+          <circle cx="60" cy="54" r="15" fill="${isEnd ? "#b65c3a" : "#6f9e58"}" stroke="#fff" stroke-width="2.8"/>
+          <text x="60" y="59.5" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">${no}</text>
+          ${isEnd ? '<text x="60" y="30" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b65c3a">END</text>' : ""}
+          <text x="86" y="60" font-size="14.5" font-weight="700" fill="#13262f">${no}. ${escapeHtml(only.name)}</text>
+        </svg>`;
+    }
+
+    const lats = cluster.map((n) => n.geo.lat);
+    const lngs = cluster.map((n) => n.geo.lng);
+    const midLat = (Math.min(...lats) + Math.max(...lats)) / 2;
+    const kx = Math.cos((midLat * Math.PI) / 180);
+    const xsRaw = lngs.map((lng) => lng * kx);
+    const ysRaw = lats.map((lat) => -lat);
+    const spanX = Math.max(...xsRaw) - Math.min(...xsRaw) || 1e-6;
+    const spanY = Math.max(...ysRaw) - Math.min(...ysRaw) || 1e-6;
+    const scale = Math.min((W - PAD * 2) / spanX, (H - PAD * 2) / spanY);
+    const offsetX = (W - spanX * scale) / 2 - Math.min(...xsRaw) * scale;
+    const offsetY = (H - spanY * scale) / 2 - Math.min(...ysRaw) * scale;
+
+    const coords = cluster.map((node, index) => ({
+      ...node,
+      px: xsRaw[index] * scale + offsetX,
+      py: ysRaw[index] * scale + offsetY
+    }));
+
+    // 连线：颜色从浅到深表示行进方向，中点画箭头三角，旁边标距离
+    const segments = coords.slice(1).map((point, index) => {
+      const prev = coords[index];
+      const km = haversineKm(prev.geo, point.geo);
+      const mx = (prev.px + point.px) / 2;
+      const my = (prev.py + point.py) / 2;
+      const ratio = coords.length > 2 ? index / (coords.length - 2) : 0;
+      const shade = ["#bcd6a8", "#a6c98d", "#8fbc73", "#79ae5c", "#63a047", "#519138", "#42822c"];
+      const color = shade[Math.round(ratio * (shade.length - 1))];
+      const angle = (Math.atan2(point.py - prev.py, point.px - prev.px) * 180) / Math.PI;
+      return `<line x1="${prev.px.toFixed(1)}" y1="${prev.py.toFixed(1)}" x2="${point.px.toFixed(1)}" y2="${point.py.toFixed(1)}"
+        stroke="${color}" stroke-width="3.4" stroke-linecap="round" opacity=".95"/>
+        <g transform="translate(${mx.toFixed(1)} ${my.toFixed(1)}) rotate(${angle.toFixed(1)})">
+          <path d="M-5 -5 L6 0 L-5 5 z" fill="${color}" stroke="#fbfdf9" stroke-width="1"/>
+        </g>
+        <text x="${mx.toFixed(1)}" y="${(my - 11).toFixed(1)}" text-anchor="middle" font-size="10" fill="#4c7a38" font-weight="600"
+          stroke="#fbfdf9" stroke-width="3" paint-order="stroke fill">${km < 1 ? Math.round(km * 1000) + "m" : km.toFixed(1) + "km"}</text>`;
+    }).join("");
+
+    /* 标签防重叠：为每个点在 8 个候选方位里挑一个与已放置标签冲突最小的位置 */
+    const LABEL_H = 15;
+    const placed = [];
+    const CANDIDATES = [
+      { dx: 18, dy: 4.5, anchor: "start" },
+      { dx: -18, dy: 4.5, anchor: "end" },
+      { dx: 18, dy: -12, anchor: "start" },
+      { dx: -18, dy: -12, anchor: "end" },
+      { dx: 18, dy: 20, anchor: "start" },
+      { dx: -18, dy: 20, anchor: "end" },
+      { dx: 0, dy: -20, anchor: "middle" },
+      { dx: 0, dy: 28, anchor: "middle" }
+    ];
+    const markers = coords.map((point, index) => {
+      const globalNo = startIndex + index + 1;
+      const isFirstOverall = globalNo === 1;
+      const isLastOverall = globalNo === totalCount;
+      const fill = isFirstOverall ? "#287b90" : isLastOverall ? "#b65c3a" : "#6f9e58";
+      const label = `${point.name}${point.repeat ? "（往返）" : ""}`;
+      const textW = label.replace(/[^\x00-\xff]/g, "aa").length * 6.2;
+
+      let best = null;
+      for (const cand of CANDIDATES) {
+        const tx = point.px + cand.dx;
+        const ty = point.py + cand.dy;
+        const left = cand.anchor === "start" ? tx : cand.anchor === "end" ? tx - textW : tx - textW / 2;
+        const box = { x1: left, y1: ty - LABEL_H, x2: left + textW, y2: ty + 4 };
+        // 超出画布边界的候选直接跳过
+        if (box.x1 < 4 || box.x2 > W - 4 || box.y1 < 14 || box.y2 > H - 8) continue;
+        let overlap = 0;
+        for (const prev of placed) {
+          const ox = Math.max(0, Math.min(box.x2, prev.x2) - Math.max(box.x1, prev.x1));
+          const oy = Math.max(0, Math.min(box.y2, prev.y2) - Math.max(box.y1, prev.y1));
+          overlap += ox * oy;
+        }
+        // 标签也不要压到其他圆点
+        for (const other of coords) {
+          if (other === point) continue;
+          if (other.px > box.x1 - 10 && other.px < box.x2 + 10 && other.py > box.y1 - 10 && other.py < box.y2 + 10) overlap += 400;
+        }
+        if (!best || overlap < best.overlap) best = { ...cand, tx, ty, box, overlap };
+        if (overlap === 0) break;
+      }
+      const pick = best || { tx: point.px + 18, ty: point.py + 4.5, anchor: "start", box: { x1: 0, y1: 0, x2: 0, y2: 0 } };
+      placed.push(pick.box);
+
+      const r = isFirstOverall || isLastOverall ? 15 : 13;
+      const badge = isFirstOverall
+        ? `<text x="${point.px.toFixed(1)}" y="${(point.py - r - 7).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700" fill="#287b90" stroke="#fbfdf9" stroke-width="3" paint-order="stroke fill">START</text>`
+        : isLastOverall
+          ? `<text x="${point.px.toFixed(1)}" y="${(point.py - r - 7).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b65c3a" stroke="#fbfdf9" stroke-width="3" paint-order="stroke fill">END</text>`
+          : "";
+      return `
+        ${isFirstOverall ? `<circle cx="${point.px.toFixed(1)}" cy="${point.py.toFixed(1)}" r="${r + 5}" fill="none" stroke="#287b90" stroke-width="1.6" opacity=".45"/>` : ""}
+        <circle cx="${point.px.toFixed(1)}" cy="${point.py.toFixed(1)}" r="${r}" fill="${fill}" stroke="#fff" stroke-width="2.8"/>
+        <text x="${point.px.toFixed(1)}" y="${(point.py + 5).toFixed(1)}" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">${globalNo}</text>
+        ${badge}
+        <text x="${pick.tx.toFixed(1)}" y="${pick.ty.toFixed(1)}" text-anchor="${pick.anchor}" font-size="12.5" font-weight="700" fill="#13262f"
+          stroke="#fbfdf9" stroke-width="3.5" paint-order="stroke fill">${globalNo}. ${escapeHtml(label)}</text>`;
+    }).join("");
+
+    return `
+      <svg viewBox="0 0 ${W} ${H}" class="day-card__map-svg" role="img" aria-label="路线图">
+        <g>${segments}</g>
+        <g>${markers}</g>
+        <text x="${W - 12}" y="20" text-anchor="end" font-size="11" fill="#8a9a92">↑ 北</text>
+      </svg>`;
+  }
+
+  function dayRouteMapSvg(day) {
+    const daily = (tripData?.map?.dailyRoutes || []).find((route) => route.day === day.day);
+    const ids = daily?.placeIds || [];
+    const catalog = tripData?.map?.places || [];
+    const pts = ids.map((id) => catalog.find((place) => place.id === id)).filter((place) => place?.geo);
+    if (pts.length < 2) return "";
+
+    // 去掉连续重复点（如乌布当天首尾都是同一酒店）
+    const nodes = [];
+    pts.forEach((place) => {
+      const last = nodes[nodes.length - 1];
+      if (!last || last.id !== place.id) nodes.push({ ...place });
+      else last.repeat = true;
+    });
+    if (nodes.length < 2) return "";
+
+    const clusters = splitRouteClusters(nodes);
+    let cursor = 0;
+    const blocks = clusters.map((cluster) => {
+      const svg = renderClusterSvg(cluster, cursor, nodes.length);
+      cursor += cluster.length;
+      const jump = cluster.jumpKm
+        ? `<p class="day-card__map-jump">🚗 车程约 ${Math.round(cluster.jumpKm)} km → ${escapeHtml(cluster.jumpTo?.name || "")}</p>`
+        : "";
+      return svg + jump;
+    }).join("");
+
+    return `
+      <div class="day-card__map">
+        <p class="day-card__map-title">🗺️ 当天路线图 · 按 ①②③ 数字顺序走</p>
+        <svg width="0" height="0" style="position:absolute">
+          <defs>
+            <marker id="dayArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+              <path d="M0 1.5 L9 5 L0 8.5 z" fill="#4c5f52"/>
+            </marker>
+          </defs>
+        </svg>
+        ${blocks}
+        <p class="day-card__map-note">按数字 1 → 2 → 3 顺序走 · 蓝圈 START 是出发点 · 橙色 END 是终点 · 箭头指示方向、颜色由浅到深</p>
+      </div>`;
+  }
+
   function ticketsForDay(day) {
     return (tripData?.ticketPlanning?.items || []).filter((ticket) => ticket.day === day.day);
   }
@@ -242,6 +442,26 @@
         <b>${escapeHtml(ticket.name || "门票详情")}</b>
         <button type="button" class="schedule-ticket__open" data-ticket-open="${escapeHtml(ticket.id)}" aria-haspopup="dialog" aria-controls="ticket-dialog">查看</button>
       </div>`).join("");
+  }
+
+  // 当天路线顺序条：从 map.dailyRoutes 取该日地点序列，横向展示「①酒店 → ②亚坤 → …」
+  function routeStripForDay(day) {
+    const daily = (tripData?.map?.dailyRoutes || []).find((route) => route.day === day.day);
+    const ids = daily?.placeIds || [];
+    if (ids.length < 2) return "";
+    const mapPlaces = tripData?.map?.places || [];
+    const names = ids
+      .map((id) => mapPlaces.find((place) => place.id === id))
+      .filter(Boolean)
+      .map((place) => place.name);
+    if (names.length < 2) return "";
+    return `
+      <div class="day-card__route" aria-label="当天路线顺序">
+        <p class="day-card__route-title">🧭 当天路线（按顺序，不走回头路）</p>
+        <ol class="day-card__route-list">
+          ${names.map((name, index) => `<li><i>${index + 1}</i><span>${escapeHtml(name)}</span></li>`).join("")}
+        </ol>
+      </div>`;
   }
 
   function renderDayCards() {
@@ -290,6 +510,8 @@
           ${city ? `<span class="day-card__city">${escapeHtml(city.name)}</span>` : ""}
         </header>
         ${weatherFallback(day)}
+        ${routeStripForDay(day)}
+        ${dayRouteMapSvg(day)}
         <ol class="day-card__schedule">${schedule}</ol>
         ${ticketRowForDay(day)}
         ${photoGrid}
@@ -299,7 +521,7 @@
   }
 
   async function fillWeather() {
-    const pending = $$(".day-card__weather.is-pending");
+    const pending = document.querySelectorAll(".day-card__weather.is-pending");
     if (!pending.length || !tripData) return;
     const results = await Promise.allSettled(WEATHER_CITIES.map((c) => loadCityWeather(c.name)));
     for (const day of tripData.days || []) {
@@ -332,7 +554,9 @@
       : 1;
     const rows = [
       ["房型", acc.roomType],
+      ["确认号", acc.confirmNo],
       ["早餐", acc.breakfast],
+      ["酒店电话", acc.phone],
       ["入住提醒", acc.reminder],
       ["费用", acc.priceNote],
       ["备注", acc.notice]

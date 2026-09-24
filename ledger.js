@@ -212,11 +212,87 @@
     return /^#[0-9a-f]{6}$/i.test(String(value || ""));
   }
 
+  /* 金额表达式求值：支持 + - * / x × ÷ 与括号，不使用 eval。
+     例：26.5*3 → 79.5；120+38+15 → 173；(100-20)/2 → 40 */
+  function evaluateAmountExpression(raw) {
+    const text = String(raw ?? "")
+      .replace(/[,\s]/g, "")
+      .replace(/[xX×]/g, "*")
+      .replace(/[÷]/g, "/")
+      .replace(/[（]/g, "(")
+      .replace(/[）]/g, ")");
+    if (!text) return null;
+    if (!/^[0-9.+\-*/()]+$/.test(text)) return null;
+
+    let pos = 0;
+    const peek = () => text[pos];
+    const eat = (ch) => { if (text[pos] === ch) { pos += 1; return true; } return false; };
+
+    function parseNumber() {
+      const start = pos;
+      while (pos < text.length && /[0-9.]/.test(text[pos])) pos += 1;
+      const slice = text.slice(start, pos);
+      if (!/^(?:\d+(?:\.\d*)?|\.\d+)$/.test(slice)) return NaN;
+      return Number(slice);
+    }
+
+    function parseFactor() {
+      if (eat("+")) return parseFactor();
+      if (eat("-")) return -parseFactor();
+      if (eat("(")) {
+        const inner = parseExpression();
+        if (!eat(")")) return NaN;
+        return inner;
+      }
+      return parseNumber();
+    }
+
+    function parseTerm() {
+      let value = parseFactor();
+      for (;;) {
+        if (eat("*")) {
+          value *= parseFactor();
+        } else if (eat("/")) {
+          const divisor = parseFactor();
+          if (!divisor) return NaN;
+          value /= divisor;
+        } else {
+          return value;
+        }
+      }
+    }
+
+    function parseExpression() {
+      let value = parseTerm();
+      for (;;) {
+        if (eat("+")) value += parseTerm();
+        else if (eat("-")) value -= parseTerm();
+        else return value;
+      }
+    }
+
+    const result = parseExpression();
+    if (pos !== text.length || !Number.isFinite(result) || result < 0) return null;
+    return result;
+  }
+
+  // 表达式是否包含运算符（用于判断要不要显示计算结果提示）
+  function isAmountExpression(raw) {
+    return /[+\-*/xX×÷()（）]/.test(String(raw ?? "").trim().replace(/^-/, ""));
+  }
+
   function toCents(value) {
     const normalized = String(value ?? "").trim().replace(/,/g, "");
-    if (!/^(?:\d+|\d*\.\d{1,2})$/.test(normalized)) return null;
-    const [whole = "0", fraction = ""] = normalized.split(".");
-    const cents = Number(whole) * 100 + Number(fraction.padEnd(2, "0"));
+    if (!normalized) return null;
+    if (/^(?:\d+|\d*\.\d{1,2})$/.test(normalized)) {
+      const [whole = "0", fraction = ""] = normalized.split(".");
+      const cents = Number(whole) * 100 + Number(fraction.padEnd(2, "0"));
+      return Number.isSafeInteger(cents) ? cents : null;
+    }
+    // 尝试按四则运算表达式求值（结果四舍五入到分）
+    const evaluated = evaluateAmountExpression(normalized);
+    if (evaluated === null) return null;
+    const cents = Math.round(evaluated * 100);
     return Number.isSafeInteger(cents) ? cents : null;
   }
 
@@ -668,16 +744,18 @@
               </label>
               <label class="ledger-field ledger-field-amount">
                 <span class="ledger-field-label">金额</span>
-                <input class="ledger-amount-input" name="originalAmount" data-ledger-field="original-amount" type="text" inputmode="decimal" autocomplete="off" placeholder="0.00" value="${escapeAttribute(editingBill ? centsToInput(editingBill.originalAmountCents) : draft?.originalAmount || "")}" required>
+                <input class="ledger-amount-input" name="originalAmount" data-ledger-field="original-amount" type="text" inputmode="text" autocomplete="off" placeholder="支持 26.5*3" value="${escapeAttribute(editingBill ? centsToInput(editingBill.originalAmountCents) : draft?.originalAmount || "")}" required>
+                <small class="ledger-calc-hint" data-ledger-calc="original-amount" hidden></small>
               </label>
             </div>
             <label class="ledger-field ledger-converted-field" data-ledger-converted-field ${isForeign ? "" : "hidden"}>
               <span class="ledger-field-label">折合${escapeHtml(currencyByCode(baseCurrency).nameZh)}</span>
               <span class="ledger-converted-input-wrap">
                 <span class="ledger-converted-code">${escapeHtml(baseCurrency)}</span>
-                <input class="ledger-input" name="baseAmount" data-ledger-field="base-amount" type="text" inputmode="decimal" autocomplete="off" placeholder="手动填写换算后的总金额" value="${escapeAttribute(editingBill && isForeign ? centsToInput(editingBill.baseAmountCents) : draft?.baseAmount || "")}" ${isForeign ? "required" : ""}>
+                <input class="ledger-input" name="baseAmount" data-ledger-field="base-amount" type="text" inputmode="text" autocomplete="off" placeholder="支持 79.5*5.3" value="${escapeAttribute(editingBill && isForeign ? centsToInput(editingBill.baseAmountCents) : draft?.baseAmount || "")}" ${isForeign ? "required" : ""}>
               </span>
-              <small class="ledger-field-help">按付款当时采用的汇率手动填写</small>
+              <small class="ledger-calc-hint" data-ledger-calc="base-amount" hidden></small>
+              <small class="ledger-field-help">按付款当时采用的汇率手动填写，支持算式（如 79.5*5.3）</small>
             </label>
 
             <fieldset class="ledger-fieldset">
@@ -1773,6 +1851,42 @@
     handleAction(button);
   }
 
+  // 在金额输入框下方实时显示算式计算结果
+  function syncCalcHint(input) {
+    const field = input?.dataset?.ledgerField;
+    if (!field) return;
+    const hint = ledgerRoot.querySelector(`[data-ledger-calc="${field}"]`);
+    if (!hint) return;
+    const raw = String(input.value || "").trim();
+    if (!raw || !isAmountExpression(raw)) {
+      hint.hidden = true;
+      hint.textContent = "";
+      hint.classList.remove("is-error");
+      return;
+    }
+    const cents = toCents(raw);
+    hint.hidden = false;
+    if (cents === null) {
+      hint.textContent = "算式无法识别，请检查（支持 + - × ÷ 与括号）";
+      hint.classList.add("is-error");
+    } else {
+      hint.textContent = `= ${(cents / 100).toFixed(2)}`;
+      hint.classList.remove("is-error");
+    }
+  }
+
+  // 失焦时把算式换算成最终金额，避免提交时还留着算式
+  function settleCalcInput(input) {
+    const raw = String(input.value || "").trim();
+    if (!raw || !isAmountExpression(raw)) return;
+    const cents = toCents(raw);
+    if (cents === null) return;
+    input.value = (cents / 100).toFixed(2);
+    syncCalcHint(input);
+    captureBillDraft();
+    syncSplitSummary();
+  }
+
   function handleRootInput(event) {
     if (event.target.matches("[data-ledger-currency-search]")) {
       currencyQuery = event.target.value;
@@ -1782,6 +1896,9 @@
     }
     const memberForm = event.target.closest('[data-ledger-form="member-add"]');
     if (memberForm) syncMemberPreview(memberForm);
+    if (event.target.matches('[data-ledger-field="original-amount"], [data-ledger-field="base-amount"]')) {
+      syncCalcHint(event.target);
+    }
     if (event.target.closest('[data-ledger-form="bill"]')) {
       captureBillDraft();
       syncSplitSummary();
@@ -1815,6 +1932,14 @@
       event.preventDefault();
       cancelBillNoteEditor();
       return;
+    }
+    // 金额框里按回车：先把算式算成数字，不直接提交表单
+    if (event.key === "Enter" && event.target.matches?.('[data-ledger-field="original-amount"], [data-ledger-field="base-amount"]')) {
+      if (isAmountExpression(event.target.value) && toCents(event.target.value) !== null) {
+        event.preventDefault();
+        settleCalcInput(event.target);
+        return;
+      }
     }
     if (!event.target.matches('[role="tab"]') || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
     event.preventDefault();
@@ -1877,6 +2002,12 @@
     ledgerRoot.addEventListener("change", handleRootChange);
     ledgerRoot.addEventListener("submit", handleRootSubmit);
     ledgerRoot.addEventListener("keydown", handleRootKeydown);
+    // 金额框失焦时自动把算式结算为数字
+    ledgerRoot.addEventListener("focusout", (event) => {
+      if (event.target.matches?.('[data-ledger-field="original-amount"], [data-ledger-field="base-amount"]')) {
+        settleCalcInput(event.target);
+      }
+    });
     document.addEventListener("pointerdown", handleDocumentPointerDown);
     initialized = true;
     renderApp();

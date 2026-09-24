@@ -292,6 +292,60 @@
   padding-bottom: 1px;
 }
 
+/* 当天路线顺序条 */
+.day-card__route {
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border: 1px dashed rgba(111, 158, 88, 0.55);
+  border-radius: 14px;
+  background: #fbfdf9;
+}
+.day-card__route-title {
+  margin: 0 0 9px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+.day-card__route-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 4px;
+  align-items: center;
+}
+.day-card__route-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px 4px 5px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 11.5px;
+  line-height: 1.3;
+}
+.day-card__route-list li i {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 9.5px;
+  font-weight: 700;
+  font-style: normal;
+}
+.day-card__route-list li:not(:last-child)::after {
+  content: "›";
+  margin-left: 2px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 /* ---------- 航班卡片浅色化 ---------- */
 .flight-card {
   background: linear-gradient(160deg, #f7fbf8, var(--surface) 55%);
@@ -315,3 +369,40 @@
 .flight-placeholder p { color: var(--muted); }
 .flight-placeholder li { border-color: var(--line); color: var(--ink); background: var(--accent-soft); }
 .flight-placeholder__eyebrow { color: var(--terracotta); }
+
+/* 单日真实方位路线图 */
+.day-card__map {
+  margin-bottom: 14px;
+  padding: 12px 10px 8px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fbfdf9, #f6faf3);
+}
+.day-card__map-title {
+  margin: 0 0 6px 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+.day-card__map-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.day-card__map-svg + .day-card__map-jump { margin: 2px 4px 8px; }
+.day-card__map-jump {
+  margin: 2px 4px 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #fdf1ea;
+  color: #8f492e;
+  font-size: 11.5px;
+  font-weight: 650;
+  display: inline-block;
+}
+.day-card__map-note {
+  margin: 4px 4px 0;
+  font-size: 10.5px;
+  color: var(--muted);
+}

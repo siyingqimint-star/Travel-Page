@@ -22,8 +22,7 @@
     "language": "zh-CN",
     "assets": {
       "routeMaps": [
-        "assets/maps/templates/template-06-upland-basin.webp",
-        "assets/maps/templates/template-04-urban.webp"
+        "assets/maps/templates/template-06-upland-basin.webp"
       ]
     }
   },
@@ -268,7 +267,9 @@
       "reminder": "09-29 00:05 落地，约 01:15 快速入住休息；当日酒店早餐后退房前往乌布",
       "mapQuery": "Aryaduta Bali, Jl. Kartika Plaza, Kuta",
       "priceNote": "私家团包含",
-      "notice": "凌晨落地快速入住休息【车程约10分钟左右】"
+      "confirmNo": "#290.26.Q2DWPR2G.1（含加床，Pay by Agent）",
+      "phone": "+62 361 4754188",
+      "notice": "凌晨落地快速入住休息【车程约10分钟左右】；官方入住15:00/退房12:00，凌晨入住以酒店安排为准"
     },
     {
       "id": "acc-alaya",
@@ -294,9 +295,12 @@
       "address": "Jl. Karang Mas Sejahtera, Jimbaran, Bali",
       "cityOrArea": "巴厘岛 · 金巴兰",
       "breakfast": "含3份早餐+1个加床",
-      "reminder": "10-01 晚入住；10-02 中午换房至阿雅娜别墅（专属电瓶车服务）",
+      "reminder": "官方入住 15:00 / 退房 12:00。早到可先办登记、寄存行李并直接使用全部设施（泳池/沙滩/健身房），不必等到 15:00；想保证提前进房需提前一天订房。10-02 中午换房至阿雅娜别墅（专属电瓶车）",
       "mapQuery": "AYANA Resort Bali, Jimbaran",
-      "priceNote": "私家团包含"
+      "priceNote": "私家团包含",
+      "confirmNo": "#1851056（含成人加床含早）",
+      "phone": "+62 361 702222",
+      "notice": "⚠️ AYANA 全面无现金支付（住宿/餐饮/水疗/娱乐均不收现金），入住须以信用卡支付押金，可抵扣店内消费｜园区 90 公顷含 14 个泳池、私属 Kubu Beach（悬崖升降梯直达）、Rock Bar、SAKA 博物馆、Aquatonic 海水疗养池，园内有免费接驳车"
     },
     {
       "id": "acc-villas",
@@ -310,7 +314,10 @@
       "breakfast": "含3份早餐+1个加床",
       "reminder": "别墅权益：24小时私人管家 · 专属优先电瓶车 · 迎宾礼品 · 迷你吧首次免费 · 别墅图书馆 · H2O泳池 · 岩石酒吧VILLA专属优先通道；10-04 退房送机（航班 11:20 起飞，建议 08:30 前出发）",
       "mapQuery": "The Villas at AYANA Resort Bali",
-      "priceNote": "私家团包含"
+      "priceNote": "私家团包含",
+      "confirmNo": "#1850831（含成人加床含早）",
+      "phone": "+62 361 702222",
+      "notice": "⚠️ AYANA 全面无现金支付，须用信用卡结算"
     },
     {
       "id": "acc-home-back",
@@ -570,31 +577,37 @@
           "id": "d5-w3",
           "time": "12:45",
           "type": "walk",
-          "text": "沿新加坡河岸 Boat Quay 步行至鱼尾狮公园（约18分钟，河景平路）"
-        },
-        {
-          "id": "d5-8",
-          "time": "13:30",
-          "type": "attraction",
-          "text": "鱼尾狮公园（Merlion Park 拍照打卡）"
-        },
-        {
-          "id": "d5-w4",
-          "time": "14:00",
-          "type": "walk",
-          "text": "步行前往国家美术馆（经 Fullerton 与大草场，约15分钟）"
+          "text": "沿新加坡河岸步行至国家美术馆（约12分钟，河景平路）"
         },
         {
           "id": "d5-9",
-          "time": "14:15",
+          "time": "13:00",
           "type": "attraction",
           "text": "国家美术馆（旧最高法院+市政厅双子建筑，约2小时）"
         },
         {
+          "id": "d5-w4",
+          "time": "15:00",
+          "type": "walk",
+          "text": "步行前往鱼尾狮公园（经大草场与 Fullerton，约12分钟）"
+        },
+        {
+          "id": "d5-8",
+          "time": "15:15",
+          "type": "attraction",
+          "text": "鱼尾狮公园（Merlion Park 拍照打卡，滨海湾金沙同框机位）"
+        },
+        {
           "id": "d5-t2",
-          "time": "16:15",
+          "time": "16:00",
           "type": "train",
-          "text": "MRT回酒店取行李、办理退房"
+          "text": "MRT 莱佛士坊（EW14/NS26）→ 牛车水，回酒店取行李、办理退房（约25分钟）"
+        },
+        {
+          "id": "d5-w5",
+          "time": "17:00",
+          "type": "walk",
+          "text": "拖行李步行/短车程至克拉码头河滨（约10分钟）"
         },
         {
           "id": "d5-10",
@@ -642,7 +655,13 @@
           "id": "d6-1",
           "time": "00:05",
           "type": "flight",
-          "text": "TR346 落地巴厘岛登巴萨机场（办理落地签，约35美金/人）"
+          "text": "TR346 落地巴厘岛登巴萨机场"
+        },
+        {
+          "id": "d6-customs",
+          "time": "00:15",
+          "type": "note",
+          "text": "入境三步：①办落地签（50万印尼盾/约35美金现金，不找零）②过海关第二关卡出示电子申报二维码 ③【务必确认护照已盖章再离开柜台】补盖章需200-400美金；机场内禁止拍照，罚款200美金"
         },
         {
           "id": "d6-t1",
@@ -670,21 +689,33 @@
         },
         {
           "id": "d6-4",
-          "time": "12:00",
+          "time": "11:30",
           "type": "check-in",
           "text": "入住 Alaya Resort Ubud（Deluxe Room 豪华房，自订）"
         },
         {
+          "id": "d6-lunch",
+          "time": "12:00",
+          "type": "restaurant",
+          "text": "午餐：Twist Ubud（已代预约位置）"
+        },
+        {
           "id": "d6-5",
-          "time": "14:00",
+          "time": "13:00",
           "type": "note",
-          "text": "预约 dala spa，体验SPA"
+          "text": "Dala Spa 体验（已预约 13:00）"
+        },
+        {
+          "id": "d6-yoga",
+          "time": "16:00-17:00",
+          "type": "note",
+          "text": "【可选】Alaya 酒店免费瑜伽课（视当天状态决定是否参加）"
         },
         {
           "id": "d6-6",
-          "time": "18:30",
+          "time": "18:00",
           "type": "restaurant",
-          "text": "晚餐：pison"
+          "text": "晚餐：Pison Ubud（已预约 18:00）"
         }
       ]
     },
@@ -700,57 +731,63 @@
       "schedule": [
         {
           "id": "d7-1",
-          "time": "",
+          "time": "08:30",
           "type": "note",
           "text": "自然醒，酒店早餐"
         },
         {
           "id": "d7-d1",
-          "time": "10:00",
+          "time": "09:30",
           "type": "drive",
-          "text": "专车出发前往乌布区域"
+          "text": "专车前往 Tukad Cepung 瀑布（车程约 40-50 分钟）"
         },
         {
           "id": "d7-2",
-          "time": "10:30",
+          "time": "10:20",
           "type": "attraction",
-          "text": "Tukad Cepung 瀑布（需简单溯溪一段，建议穿防滑溯溪鞋，打卡拍照游玩）"
+          "text": "Tukad Cepung 瀑布（需溯溪一段，穿防滑溯溪鞋；洞穴光柱上午光线最佳）"
         },
         {
           "id": "d7-d2",
-          "time": "13:00",
+          "time": "12:15",
           "type": "drive",
-          "text": "前往午餐地点"
+          "text": "返回乌布市区（车程约 40-50 分钟）"
         },
         {
           "id": "d7-3",
-          "time": "13:15",
+          "time": "13:00",
           "type": "restaurant",
-          "text": "午餐：twist wubu（已代预约位置）"
+          "text": "午餐：Sun Sun Warung（脏鸭饭）"
         },
         {
           "id": "d7-4",
           "time": "14:30",
           "type": "attraction",
-          "text": "乌布传统艺术集市逛街"
+          "text": "乌布传统艺术集市逛街（离 Sun Sun Warung 很近，可步行/短车程）"
+        },
+        {
+          "id": "d7-yoga",
+          "time": "16:00-17:00",
+          "type": "note",
+          "text": "【可选】Alaya 酒店免费瑜伽课（想上课需 15:40 前回到酒店；也可继续逛集市或回房休息，为晚上 SPA 养精神）"
         },
         {
           "id": "d7-5",
-          "time": "16:30",
+          "time": "18:00-20:00",
           "type": "note",
-          "text": "体验 green tara spa"
+          "text": "Green Tara Spa（已预约 18:00-20:00，2小时）"
         },
         {
           "id": "d7-d3",
-          "time": "18:30",
+          "time": "20:00",
           "type": "drive",
-          "text": "前往晚餐餐厅"
+          "text": "前往晚餐餐厅（车程约 10 分钟）"
         },
         {
           "id": "d7-6",
-          "time": "19:00",
+          "time": "20:15",
           "type": "restaurant",
-          "text": "晚餐：sunsun wrung 脏鸭饭"
+          "text": "晚餐：Kebun Bistro（建议提前订位；厨房通常 22:00 左右收单，SPA 结束后直接过去时间充裕）"
         }
       ]
     },
@@ -760,64 +797,82 @@
       "title": "巴厘岛 D4 · 乌布 → 乌鲁瓦图 → 阿雅娜",
       "locations": [
         "Alaya Resort Ubud",
+        "Malini 悬崖餐厅",
         "乌鲁瓦图情人崖",
-        "White Rock Beach Club",
         "AYANA Resort Bali"
       ],
       "schedule": [
         {
           "id": "d8-1",
-          "time": "07:30",
+          "time": "07:00",
           "type": "note",
-          "text": "早上体验 Yoga Barn 课程"
+          "text": "早起（想做 Yoga Barn 早课需赶 07:00-08:00 场次，时间较紧，也可改为在酒店放松）"
         },
         {
           "id": "d8-2",
-          "time": "10:00",
-          "type": "note",
-          "text": "返回酒店修整，慢悠悠退房"
+          "time": "08:15",
+          "type": "restaurant",
+          "text": "酒店早餐 + 收拾行李"
+        },
+        {
+          "id": "d8-checkout",
+          "time": "09:00",
+          "type": "check-out",
+          "text": "Alaya 退房（行李装车）"
         },
         {
           "id": "d8-d1",
-          "time": "13:00",
+          "time": "09:15",
           "type": "drive",
-          "text": "专车前往乌鲁瓦图（南部海边）"
-        },
-        {
-          "id": "d8-3",
-          "time": "14:00",
-          "type": "attraction",
-          "text": "乌鲁瓦图情人崖（俯瞰震撼的悬崖海景景观）"
+          "text": "专车前往乌鲁瓦图 · 全程约 50 公里，车程 2-2.5 小时（须穿越登巴萨市区，9点后出发可避开早高峰）"
         },
         {
           "id": "d8-4",
-          "time": "15:30",
+          "time": "12:00",
           "type": "restaurant",
-          "text": "午餐：悬崖海景餐厅 Malini（餐食费用自理）"
+          "text": "午餐：Malini 悬崖海景餐厅（建议提前订海景位；餐食费用自理）"
+        },
+        {
+          "id": "d8-3",
+          "time": "13:30",
+          "type": "attraction",
+          "text": "乌鲁瓦图情人崖（俯瞰震撼悬崖海景；注意看管随身物品，猴子很多）"
         },
         {
           "id": "d8-d2",
-          "time": "17:00",
+          "time": "14:45",
           "type": "drive",
-          "text": "前往 White Rock Beach Club"
+          "text": "前往 AYANA（车程约 30 分钟）"
+        },
+        {
+          "id": "d8-6",
+          "time": "15:00",
+          "type": "check-in",
+          "text": "入住 AYANA Resort Bali（Ocean View Room 海景房）· 官方入住时间 15:00，若早到可先寄存行李、直接使用全部设施"
+        },
+        {
+          "id": "d8-pool",
+          "time": "15:30",
+          "type": "rest",
+          "text": "AYANA 泡酒店：14 个泳池任选（成人专属 Ocean Beach Pool 无边海景、隐秘 River Pool），换上泳衣开泡"
+        },
+        {
+          "id": "d8-kubu",
+          "time": "16:30",
+          "type": "attraction",
+          "text": "坐悬崖升降梯（inclinator）下到私属 Kubu Beach，白沙+石灰岩崖壁，仅住客可进"
         },
         {
           "id": "d8-5",
           "time": "17:30",
           "type": "attraction",
-          "text": "White Rock Beach Club 看落日"
+          "text": "Rock Bar 看日落（建在海面 14 米高崖壁上；住客有优先通道，别墅客更有 VILLA 专属通道；10月初日落约 18:10，建议 17:30 前到位）"
         },
         {
-          "id": "d8-d3",
-          "time": "19:00",
-          "type": "drive",
-          "text": "前往阿雅娜酒店"
-        },
-        {
-          "id": "d8-6",
+          "id": "d8-dinner",
           "time": "19:30",
-          "type": "check-in",
-          "text": "入住闻名世界的 AYANA Resort Bali（Ocean View Room 海景房）"
+          "type": "restaurant",
+          "text": "晚餐：度假村内任选（KISIK 悬崖海鲜 / DAVA 牛排海鲜 / Kampoeng Bali 有巴厘文化表演）· 全程无现金，刷信用卡"
         }
       ]
     },
@@ -1170,6 +1225,41 @@
       "cityOrArea": "巴厘岛 乌布"
     },
     {
+      "id": "sunsun",
+      "name": "Sun Sun Warung",
+      "nameZh": "Sun Sun Warung 脏鸭饭",
+      "cityOrArea": "巴厘岛 乌布",
+      "address": "Sun Sun Warung, Ubud, Bali"
+    },
+    {
+      "id": "kebun",
+      "name": "Kebun Bistro",
+      "nameZh": "Kebun Bistro",
+      "cityOrArea": "巴厘岛 乌布",
+      "address": "Kebun Bistro, Jl. Raya Sanggingan, Ubud, Bali"
+    },
+    {
+      "id": "greentara",
+      "name": "Green Tara Spa",
+      "nameZh": "Green Tara Spa",
+      "cityOrArea": "巴厘岛 乌布",
+      "address": "Green Tara Spa, Ubud, Bali"
+    },
+    {
+      "id": "twist",
+      "name": "Twist Ubud",
+      "nameZh": "Twist Ubud",
+      "cityOrArea": "巴厘岛 乌布",
+      "address": "Twist Ubud, Bali"
+    },
+    {
+      "id": "malini",
+      "name": "Malini",
+      "nameZh": "Malini 悬崖海景餐厅",
+      "cityOrArea": "巴厘岛 乌鲁瓦图",
+      "address": "Malini Restaurant Uluwatu, Bali"
+    },
+    {
       "id": "uluwatu",
       "name": "乌鲁瓦图情人崖",
       "cityOrArea": "巴厘岛 乌鲁瓦图"
@@ -1213,13 +1303,53 @@
   "preTrip": {
     "packingItems": [
       {
-        "id": "todo-visa",
-        "text": "巴厘岛落地签费用：约35美金/人（落地办理）",
+        "id": "todo-evoa",
+        "text": "【重要】办印尼签证：落地签 50万印尼盾（约35美金/300元现金，海关不找零）或提前办 eVOA 电子签（护照首页+白底彩照，260元/人）",
+        "completed": false
+      },
+      {
+        "id": "todo-declare",
+        "text": "【9/25起可填】巴厘岛入境电子申报：起飞前72小时内填写 allindonesia.imigrasi.go.id，下载/截图二维码存手机，过海关第二关卡出示",
+        "completed": false
+      },
+      {
+        "id": "todo-docs",
+        "text": "打印并携带：①电子机票行程单 ②酒店入住确认单（4份）③护照原件（有效期6个月以上+3页空白页）",
+        "completed": false
+      },
+      {
+        "id": "todo-insurance",
+        "text": "保存保单电子版：平安旅行意外险（3人已投保，意外身故30万/医疗30万），出险后保留所有诊断证明和发票原件",
+        "completed": false
+      },
+      {
+        "id": "todo-creditcard",
+        "text": "带信用卡：AYANA 酒店及别墅全面无现金支付，入住需刷信用卡押金",
+        "completed": false
+      },
+      {
+        "id": "todo-booking",
+        "text": "餐厅订位：9/30 Kebun Bistro（晚20:15）、10/1 Malini 悬崖餐厅（午12:00，指定海景位）——建议提前 2-3 天订",
+        "completed": false
+      },
+      {
+        "id": "todo-rockbar",
+        "text": "入住 AYANA 当天：向前台预约 Rock Bar 日落位（住客有优先通道，别墅客有 VILLA 专属通道），并问清园区免费接驳车与 Kubu Beach 升降梯运行时间",
+        "completed": false
+      },
+      {
+        "id": "todo-swim",
+        "text": "泳衣放在随手行李里（10/1 下午到 AYANA 即可直接下水，行李可先寄存）",
         "completed": false
       },
       {
         "id": "todo-shoes",
         "text": "带防滑溯溪鞋（Tukad Cepung 瀑布溯溪用）",
+        "completed": false
+      },
+      {
+        "id": "todo-cash",
+        "text": "备好美金现金（落地签用）+ 少量印尼盾；出境人民币不超过1.5万、外币不超过5000美金",
         "completed": false
       },
       {
@@ -1230,6 +1360,11 @@
       {
         "id": "todo-seat",
         "text": "演唱会开座位后确认座位信息（开演前两天开座）",
+        "completed": false
+      },
+      {
+        "id": "todo-airport3h",
+        "text": "国际航班提前3小时到机场（9/27深圳湾出发已按此规划）",
         "completed": false
       }
     ],
@@ -1440,6 +1575,15 @@
           "lng": 115.144
         },
         "mapRegionId": "bali"
+      },
+      {
+        "id": "malini",
+        "name": "Malini悬崖餐厅",
+        "geo": {
+          "lat": -8.8295,
+          "lng": 115.087
+        },
+        "mapRegionId": "bali"
       }
     ],
     "routes": [
@@ -1507,8 +1651,8 @@
           "tree-tunnel",
           "hill-street",
           "songfa",
-          "merlion",
           "gallery-sg",
+          "merlion",
           "jumbo",
           "jewel"
         ],
@@ -1532,7 +1676,8 @@
             "d5-w4"
           ],
           [
-            "d5-t2"
+            "d5-t2",
+            "d5-w5"
           ],
           [
             "d5-t3"
@@ -1579,8 +1724,8 @@
         "day": 8,
         "placeIds": [
           "alaya",
+          "malini",
           "uluwatu",
-          "white-rock",
           "ayana"
         ],
         "scheduleItems": [
@@ -1588,10 +1733,13 @@
             "d8-d1"
           ],
           [
+            "d8-4"
+          ],
+          [
             "d8-d2"
           ],
           [
-            "d8-d3"
+            "d8-6"
           ]
         ]
       },
@@ -1903,8 +2051,8 @@
               "tree-tunnel",
               "hill-street",
               "songfa",
-              "merlion",
               "gallery-sg",
+              "merlion",
               "jumbo",
               "jewel"
             ],
@@ -1934,15 +2082,15 @@
                 "y": 553.57,
                 "anchor": "end"
               },
-              "merlion": {
-                "x": 719.14,
-                "y": 829.76,
-                "anchor": "start"
-              },
               "gallery-sg": {
                 "x": 530.17,
                 "y": 491.04,
                 "anchor": "end"
+              },
+              "merlion": {
+                "x": 719.14,
+                "y": 829.76,
+                "anchor": "start"
               },
               "jumbo": {
                 "x": 523.56,
@@ -1988,8 +2136,8 @@
                 "items": [
                   "d5-w3"
                 ],
-                "x": 522.57,
-                "y": 684.66
+                "x": 536.09,
+                "y": 597.31
               },
               {
                 "items": [
@@ -2000,10 +2148,11 @@
               },
               {
                 "items": [
-                  "d5-t2"
+                  "d5-t2",
+                  "d5-w5"
                 ],
-                "x": 581.87,
-                "y": 594.17
+                "x": 568.35,
+                "y": 681.53
               },
               {
                 "items": [
@@ -2022,15 +2171,15 @@
         "countryCode": "ID",
         "scope": "template-schematic",
         "mapMode": "frozen-template",
-        "templateId": "urban-radial",
+        "templateId": "upland-basin",
         "mapModeReason": "dense-place-cluster",
         "mapModeMetrics": {
-          "placeCount": 9,
-          "geoPlaceCount": 9,
+          "placeCount": 10,
+          "geoPlaceCount": 10,
           "widthKm": 25.07,
-          "heightKm": 46.64,
+          "heightKm": 46.69,
           "spanKm": 53.05,
-          "averageNearestKm": 2.79,
+          "averageNearestKm": 2.36,
           "components": 1,
           "largestLegKm": 40.88,
           "jumpRatio": 6.12
@@ -2050,7 +2199,7 @@
           "type": "relative-schematic",
           "bounds": null
         },
-        "baseImage": "assets/maps/templates/template-04-urban.webp",
+        "baseImage": "assets/maps/templates/template-06-upland-basin.webp",
         "title": "印度尼西亚 · 巴厘岛 · 旅行路线",
         "ariaLabel": "印度尼西亚 · 巴厘岛模板化旅行路线示意图，共5天",
         "disclaimer": "本图仅表达地点的相对方位与路线顺序，不代表真实比例或精确地理边界。",
@@ -2076,10 +2225,10 @@
               "alaya"
             ],
             "paths": [
-              "M848.64 719.97 C844.3 685.4 830.9 654.8 809.24 629.88 C807.9 524.9 835.1 428.0 889.23 344.76"
+              "M867.84 688.53 C856.6 655.9 837.4 628.9 811.32 609.08 C811.5 511.9 838.1 422.5 889.33 346.13"
             ],
             "overviewPaths": [
-              "M848.64 719.97 C844.3 685.4 830.9 654.8 809.24 629.88 C807.9 524.9 835.1 428.0 889.23 344.76"
+              "M867.84 688.53 C856.6 655.9 837.4 628.9 811.32 609.08 C811.5 511.9 838.1 422.5 889.33 346.13"
             ]
           },
           {
@@ -2092,10 +2241,10 @@
               "alaya"
             ],
             "paths": [
-              "M889.23 344.76 C915.9 299.9 952.6 265.8 997.16 244.45 C970.3 295.8 959.4 350.3 965.24 404.83 C933.4 392.0 907.5 371.6 889.23 344.76"
+              "M889.33 346.13 C915.3 304.3 950.6 272.8 993.06 253.6 C968.4 302.7 958.9 354.6 965.32 406.19 C933.5 393.4 907.6 372.9 889.33 346.13"
             ],
             "overviewPaths": [
-              "M889.23 344.76 C915.9 299.9 952.6 265.8 997.16 244.45 C970.3 295.8 959.4 350.3 965.24 404.83 C933.4 392.0 907.5 371.6 889.23 344.76"
+              "M889.33 346.13 C915.3 304.3 950.6 272.8 993.06 253.6 C968.4 302.7 958.9 354.6 965.32 406.19 C933.5 393.4 907.6 372.9 889.33 346.13"
             ]
           },
           {
@@ -2108,10 +2257,10 @@
               "ayana"
             ],
             "paths": [
-              "M889.23 344.76 C797.0 504.4 732.7 674.7 700.39 845.56 C677.2 819.9 662.8 790.0 658.01 757.64 C699.4 787.4 745.6 803.5 793.86 805.14"
+              "M889.33 346.13 C781.9 503.6 701.6 673.8 653.16 846.82 C645.7 800.4 651.4 755.6 669.98 715.13 C717.7 753.2 771.8 775.3 829.33 780.18"
             ],
             "overviewPaths": [
-              "M889.23 344.76 C797.0 504.4 732.7 674.7 700.39 845.56 C677.2 819.9 662.8 790.0 658.01 757.64 C699.4 787.4 745.6 803.5 793.86 805.14"
+              "M889.33 346.13 C781.9 503.6 701.6 673.8 653.16 846.82 C645.7 800.4 651.4 755.6 669.98 715.13 C717.7 753.2 771.8 775.3 829.33 780.18"
             ]
           },
           {
@@ -2122,10 +2271,10 @@
               "ayana-villas"
             ],
             "paths": [
-              "M793.86 805.14 C770.5 780.0 755.8 750.5 750.71 718.44"
+              "M829.33 780.18 C801.5 758.9 781.6 731.7 770.84 700.33"
             ],
             "overviewPaths": [
-              "M793.86 805.14 C770.5 780.0 755.8 750.5 750.71 718.44"
+              "M829.33 780.18 C801.5 758.9 781.6 731.7 770.84 700.33"
             ]
           },
           {
@@ -2136,21 +2285,21 @@
               "dps-airport"
             ],
             "paths": [
-              "M750.71 718.44 C784.2 709.2 817.5 709.7 848.64 719.97"
+              "M770.84 700.33 C802.6 686.6 835.6 682.6 867.84 688.53"
             ],
             "overviewPaths": [
-              "M750.71 718.44 C784.2 709.2 817.5 709.7 848.64 719.97"
+              "M770.84 700.33 C802.6 686.6 835.6 682.6 867.84 688.53"
             ]
           }
         ],
         "places": [
           {
             "id": "dps-airport",
-            "x": 848.64,
-            "y": 719.97,
+            "x": 867.84,
+            "y": 688.53,
             "color": "#df6185",
-            "tx": 880.64,
-            "ty": 687.97,
+            "tx": 899.84,
+            "ty": 656.53,
             "size": 24,
             "anchor": "start",
             "lines": [
@@ -2168,11 +2317,11 @@
           },
           {
             "id": "aryaduta",
-            "x": 809.24,
-            "y": 629.88,
+            "x": 811.32,
+            "y": 609.08,
             "color": "#df6185",
-            "tx": 777.24,
-            "ty": 597.88,
+            "tx": 779.32,
+            "ty": 577.08,
             "size": 24,
             "anchor": "end",
             "lines": [
@@ -2189,11 +2338,11 @@
           },
           {
             "id": "alaya",
-            "x": 889.23,
-            "y": 344.76,
+            "x": 889.33,
+            "y": 346.13,
             "color": "#df6185",
-            "tx": 811.23,
-            "ty": 282.76,
+            "tx": 811.33,
+            "ty": 284.13,
             "size": 24,
             "anchor": "end",
             "lines": [
@@ -2212,11 +2361,11 @@
           },
           {
             "id": "tukad-falls",
-            "x": 997.16,
-            "y": 244.45,
+            "x": 993.06,
+            "y": 253.6,
             "color": "#397dc1",
-            "tx": 919.16,
-            "ty": 182.45,
+            "tx": 915.06,
+            "ty": 191.6,
             "size": 24,
             "anchor": "end",
             "lines": [
@@ -2233,11 +2382,11 @@
           },
           {
             "id": "ubud-market",
-            "x": 965.24,
-            "y": 404.83,
+            "x": 965.32,
+            "y": 406.19,
             "color": "#397dc1",
-            "tx": 1103.24,
-            "ty": 316.83,
+            "tx": 1103.32,
+            "ty": 318.19,
             "size": 24,
             "anchor": "start",
             "lines": [
@@ -2254,11 +2403,11 @@
           },
           {
             "id": "uluwatu",
-            "x": 700.39,
-            "y": 845.56,
+            "x": 653.16,
+            "y": 846.82,
             "color": "#e77e22",
-            "tx": 838.39,
-            "ty": 947.56,
+            "tx": 791.16,
+            "ty": 948.82,
             "size": 24,
             "anchor": "start",
             "lines": [
@@ -2275,11 +2424,11 @@
           },
           {
             "id": "white-rock",
-            "x": 658.01,
-            "y": 757.64,
+            "x": 669.98,
+            "y": 715.13,
             "color": "#e77e22",
-            "tx": 626.01,
-            "ty": 725.64,
+            "tx": 637.98,
+            "ty": 683.13,
             "size": 24,
             "anchor": "end",
             "lines": [
@@ -2296,11 +2445,11 @@
           },
           {
             "id": "ayana",
-            "x": 793.86,
-            "y": 805.14,
+            "x": 829.33,
+            "y": 780.18,
             "color": "#e77e22",
-            "tx": 871.86,
-            "ty": 881.14,
+            "tx": 907.33,
+            "ty": 718.18,
             "size": 24,
             "anchor": "start",
             "lines": [
@@ -2318,11 +2467,11 @@
           },
           {
             "id": "ayana-villas",
-            "x": 750.71,
-            "y": 718.44,
+            "x": 770.84,
+            "y": 700.33,
             "color": "#618344",
-            "tx": 828.71,
-            "ty": 794.44,
+            "tx": 848.84,
+            "ty": 776.33,
             "size": 24,
             "anchor": "start",
             "lines": [
@@ -2337,6 +2486,25 @@
               9,
               11
             ]
+          },
+          {
+            "id": "malini",
+            "x": 728.37,
+            "y": 791.62,
+            "color": "#397dc1",
+            "tx": 590.37,
+            "ty": 893.62,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "Malini悬崖餐厅"
+            ],
+            "query": "Malini悬崖餐厅 印度尼西亚 · 巴厘岛",
+            "geo": {
+              "lat": -8.8295,
+              "lng": 115.087
+            },
+            "days": []
           }
         ],
         "overviewPlaceIds": [
@@ -2348,7 +2516,8 @@
           "uluwatu",
           "white-rock",
           "ayana",
-          "ayana-villas"
+          "ayana-villas",
+          "malini"
         ],
         "dailyLayouts": {
           "6": {
@@ -2359,18 +2528,18 @@
             ],
             "labels": {
               "dps-airport": {
-                "x": 880.64,
-                "y": 687.97,
+                "x": 899.84,
+                "y": 656.53,
                 "anchor": "start"
               },
               "aryaduta": {
-                "x": 777.24,
-                "y": 597.88,
+                "x": 779.32,
+                "y": 577.08,
                 "anchor": "end"
               },
               "alaya": {
-                "x": 811.23,
-                "y": 282.76,
+                "x": 811.33,
+                "y": 284.13,
                 "anchor": "end"
               }
             },
@@ -2379,15 +2548,15 @@
                 "items": [
                   "d6-t1"
                 ],
-                "x": 828.94,
-                "y": 674.92
+                "x": 839.58,
+                "y": 648.81
               },
               {
                 "items": [
                   "d6-d1"
                 ],
-                "x": 849.24,
-                "y": 487.32
+                "x": 850.33,
+                "y": 477.61
               }
             ]
           },
@@ -2399,18 +2568,18 @@
             ],
             "labels": {
               "alaya": {
-                "x": 811.23,
-                "y": 282.76,
+                "x": 811.33,
+                "y": 284.13,
                 "anchor": "end"
               },
               "tukad-falls": {
-                "x": 919.16,
-                "y": 182.45,
+                "x": 915.06,
+                "y": 191.6,
                 "anchor": "end"
               },
               "ubud-market": {
-                "x": 1103.24,
-                "y": 316.83,
+                "x": 1103.32,
+                "y": 318.19,
                 "anchor": "start"
               }
             },
@@ -2419,51 +2588,51 @@
                 "items": [
                   "d7-d1"
                 ],
-                "x": 943.19,
-                "y": 294.61
+                "x": 941.19,
+                "y": 299.87
               },
               {
                 "items": [
                   "d7-d2"
                 ],
-                "x": 981.2,
-                "y": 324.64
+                "x": 979.19,
+                "y": 329.89
               },
               {
                 "items": [
                   "d7-d3"
                 ],
-                "x": 927.24,
-                "y": 374.79
+                "x": 927.33,
+                "y": 376.16
               }
             ]
           },
           "8": {
             "places": [
               "alaya",
+              "malini",
               "uluwatu",
-              "white-rock",
               "ayana"
             ],
             "labels": {
               "alaya": {
-                "x": 811.23,
-                "y": 282.76,
+                "x": 811.33,
+                "y": 284.13,
+                "anchor": "end"
+              },
+              "malini": {
+                "x": 590.37,
+                "y": 893.62,
                 "anchor": "end"
               },
               "uluwatu": {
-                "x": 838.39,
-                "y": 947.56,
+                "x": 791.16,
+                "y": 948.82,
                 "anchor": "start"
               },
-              "white-rock": {
-                "x": 626.01,
-                "y": 725.64,
-                "anchor": "end"
-              },
               "ayana": {
-                "x": 871.86,
-                "y": 881.14,
+                "x": 907.33,
+                "y": 718.18,
                 "anchor": "start"
               }
             },
@@ -2472,22 +2641,22 @@
                 "items": [
                   "d8-d1"
                 ],
-                "x": 794.81,
-                "y": 595.16
+                "x": 808.85,
+                "y": 568.88
+              },
+              {
+                "items": [
+                  "d8-4"
+                ],
+                "x": 690.76,
+                "y": 819.22
               },
               {
                 "items": [
                   "d8-d2"
                 ],
-                "x": 679.2,
-                "y": 801.6
-              },
-              {
-                "items": [
-                  "d8-d3"
-                ],
-                "x": 725.93,
-                "y": 781.39
+                "x": 741.25,
+                "y": 813.5
               }
             ]
           },
@@ -2498,13 +2667,13 @@
             ],
             "labels": {
               "ayana": {
-                "x": 871.86,
-                "y": 881.14,
+                "x": 907.33,
+                "y": 718.18,
                 "anchor": "start"
               },
               "ayana-villas": {
-                "x": 828.71,
-                "y": 794.44,
+                "x": 848.84,
+                "y": 776.33,
                 "anchor": "start"
               }
             },
@@ -2513,8 +2682,8 @@
                 "items": [
                   "d9-t1"
                 ],
-                "x": 772.29,
-                "y": 761.79
+                "x": 800.09,
+                "y": 740.25
               }
             ]
           },
@@ -2525,13 +2694,13 @@
             ],
             "labels": {
               "ayana-villas": {
-                "x": 828.71,
-                "y": 794.44,
+                "x": 848.84,
+                "y": 776.33,
                 "anchor": "start"
               },
               "dps-airport": {
-                "x": 880.64,
-                "y": 687.97,
+                "x": 899.84,
+                "y": 656.53,
                 "anchor": "start"
               }
             },
@@ -2540,8 +2709,8 @@
                 "items": [
                   "d11-d1"
                 ],
-                "x": 799.67,
-                "y": 719.21
+                "x": 819.34,
+                "y": 694.43
               }
             ]
           }
